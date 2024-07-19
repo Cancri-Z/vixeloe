@@ -1,0 +1,374 @@
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+
+/* For numbers */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    font-family: 'Roboto Mono' monospace;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+    color: #333; /* Dark gray color */
+    line-height: 1.2; /* Improved readability */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 5px;
+}
+
+.status h2 {
+    margin-top: 50px;
+    text-decoration: underline;
+}
+
+.product {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+/* Indicators styling */
+.indicators {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 16px;
+    margin-bottom: 10px;
+}
+
+.indicators .row {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.indicators .row:hover, .indicators .row.active {
+    background-color: #007BFF;
+}
+
+/* Controls styling */
+.controls {
+    width: 100%;
+    margin-inline: auto;
+    position: absolute;
+    bottom: -10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls button {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ffa6013a;
+    color: #007BFF;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.controls button:hover {
+    color: #0056b3;
+}
+
+
+
+/* Container for details */
+.dtl {
+    margin-left: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for paragraphs inside details */
+.dtl p {
+    padding-block: 8px;
+    margin-top: 3px;
+    border-bottom: 1px solid orange;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Specific styling for the span inside paragraphs */
+.dtl p span {
+    font-weight: bold;
+    color: #007BFF; /* Blue color for emphasis */
+}
+
+/* Additional styling for the last paragraph */
+.dtl p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.details{
+    display: flex;
+}
+
+p .digits{
+    font-family: 'Source Code Pro' monospace;
+}
+
+.row{
+    width: 5px;
+    height: 5px;
+    margin: 3px;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+/* General container styling */
+.status-prd-container {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
+/* Individual product styling */
+.product {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 940px) and (max-width: 1050px){
+    .details{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dtl{
+        margin-top: 20px;
+        margin-inline: auto;
+    }
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Details section styling */
+.product .details {
+    margin-bottom: 15px;
+}
+
+/* Image gallery styling */
+.img-gall{
+    position: relative;
+}
+
+.product .img-gall .img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.product .img-gall img {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* Buttons styling */
+/* Button container styling */
+.btn {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Individual button styling */
+.btn button {
+    background-color: #007BFF; /* Primary button color */
+    box-shadow: 1px 1px 3px #999;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.btn button:active {
+    transform: translateY(0); /* Reset lift on click */
+}
+
+.btn button:nth-child(1) {
+    background-color: #28a745; /* Green for edit */
+}
+
+.btn button:nth-child(1):hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.btn button:nth-child(2) {
+    background-color: #ffc107; /* Yellow for deactivate */
+    color: black;
+}
+
+.btn button:nth-child(2):hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.btn button:nth-child(3) {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.btn button:nth-child(3):hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.btn button:nth-child(4) {
+    background-color: #17a2b8; /* Teal for upgrade */
+}
+
+.btn button:nth-child(4):hover {
+    background-color: #138496; /* Darker teal on hover */
+}
+
+
+
+/* Rating container styling */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Stars container styling */
+.stars {
+    display: flex;
+    color: #FFD700; /* Gold color for stars */
+}
+
+/* Individual star styling */
+.stars i {
+    font-size: 20px;
+}
+
+/* Rating text styling */
+.rating p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rating p span {
+    font-weight: bold;
+    color: #007BFF; /* Blue color for rating number */
+}
+
+/* Rejection message container */
+.regct-msg {
+    padding: 15px;
+    background-color: #f8d7da; /* Reddish background for alert */
+    border: 1px solid #f5c6cb; /* Border color for alert */
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* Icon styling */
+.regct-msg i {
+    color: red; /* Dark red color for icon */
+    position: relative;
+    bottom: 1px;
+}
+
+/* Paragraph styling */
+.regct-msg p {
+    margin: 0;
+    font-size: 14px;
+    color: #721c24; /* Dark red color for text */
+}
+
+/* Link styling */
+.regct-msg a {
+    color: #721c24; /* Dark red color for link */
+    text-decoration: underline;
+}
+
+.regct-msg a:hover {
+    color: #721c24; /* Dark red color on hover */
+    text-decoration: none;
+}
+
+#redhold{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.dtl p:nth-child(2){
+    font-weight: bolder;
+}
+
+
+
+

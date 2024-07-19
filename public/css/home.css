@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+:root{
+    --hd: rgb(46, 76, 131);
+    --bg: rgb(48, 185, 192);
+    --ft: rgb(255, 247, 247);
+    --dk: rgb(54, 51, 51);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(
+        180deg,
+        rgb(54, 51, 51),
+        rgb(46,76,131)
+    );
+}
+
+header a{
+    text-decoration: none;
+    color: var(--ft);
+}
+
+#nav{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#brands{
+    position: relative;
+}
+
+#brands-btn{
+    color: var(--ft);
+}
+
+#hidden-brands{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--hd);
+    width: 150px;
+    padding: 5px;
+}
+
+#hidden-brands a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+#hidden-brands a:hover{
+    background-color: var(--ft);
+    color: var(--dk);
+}
+
+#search{
+    display: flex;
+    justify-content: center; 
+    height: 35px;
+    margin-block: auto;
+}
+
+#search input{
+    width: 500px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    outline-width: .1px;
+    outline-color: orange;
+    outline-offset: -2px;
+    -moz-outline-radius: 4px 0 0 4px;
+    padding: 8px;
+}
+
+#search button{
+    background-color: var(--bg);
+    border-radius: 0 4px 4px 0;
+    border: none;
+    width: 30px;
+    font-size: 16px;
+    color: var(--dk);
+    cursor: pointer;
+}
+
+#logo img{
+    height: 50px;
+    width: auto;
+}
+
+#login{
+    background-color: orange;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#login:hover{
+    background-color: rgb(188, 139, 46);
+}
+
+#login a{
+    color: var(--dk);
+}

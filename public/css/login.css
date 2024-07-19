@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+:root{
+    --hd: rgb(46, 76, 131);
+    --bg: rgb(48, 185, 192);
+    --ft: rgb(255, 247, 247);
+    --dk: rgb(54, 51, 51);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../img/SyE_byU0QRGqLUQCDjqyXw.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#login {
+    width: 50%;
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    box-shadow: 1px 1px 2px 1px #444;
+    border-radius: 10px;
+    background-color: #337b9384;
+}
+
+#logo,
+#text {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+#text p{
+    color: #f5f593 !important;
+}
+
+#logo img {
+    width: 150px;
+    padding: 10px;
+    background: linear-gradient(180deg, var(--bg), var(--hd));
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#text p {
+    font-size: 30px;
+    color: var(--ft);
+}
+
+#login-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+input{
+    border: none;
+    background-color: rgb(238, 238, 238);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input:focus{
+    outline: 2px solid orange;
+}
+
+::placeholder{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#login-input input {
+    width: 30vw;
+    height: 40px;
+    margin: 15px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+   
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px; 
+}
+
+.toggle-password::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.toggle-password.show-password::before {
+    content: "\f06e"; /* Closed eye icon */
+}
+
+.toggle-password.hide-password::before {
+    content: "\f070"; /* Open eye icon */
+}
+
+#forget-pass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+   
+}
+
+#forget-pass a {
+    display: flex;
+    text-decoration: none;
+    margin-bottom: 40px;
+    color: var(--ft);
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #e8e8e8;
+}
+
+#forget-pass a:hover {
+    text-decoration: underline;
+}
+
+#signup{
+    width: 190px;
+    margin-top: -15px;
+    font-size: 15px
+}
+
+#forget{
+    margin-left: 25px;
+    font-size: 14px;
+    margin-top: -30px;
+    white-space: nowrap;
+}
+
+#login-btn{
+    height: 40px;
+    display: flex;
+    margin: 0 auto;
+}
+
+#login-btn button{
+    width: 30vw;
+    font-size: 20px;
+    background-image: linear-gradient(
+        90deg,
+        #9b9ba1 30%,
+        #e4e4e4
+    );
+    color: #521b24;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    transition: all 500ms ease;
+}
+
+#login-btn button:hover{
+    background-color: rgb(149, 149, 183);
+    background-blend-mode: color-burn;
+    color: aqua;
+}
+
+@media screen and (max-width: 1110px) {
+    #signup{
+        font-size: 13px;
+        width: 144px;
+    }
+    
+    #forget{
+        font-size: 13px;
+
+    }
+}
+
+@media screen and (max-width: 960px) {
+  #login{
+    width: 60vw;
+  }
+
+  #login-input input{
+    width: 40vw;
+  }
+
+  #forget-pass {
+    width: 65%;
+  }
+
+  #login-btn button{
+    width: 40vw;
+  }
+
+  #logo img{
+    width: 130px;
+}
+
+#text p{
+    font-size: 20px;
+}
+
+}
+
+@media screen  and (max-width: 720px) {
+    #login{
+        width: 70vw;
+      }
+    
+      #login-input input, #login-btn button{
+        width: 50vw;
+      }
+    
+      #forget-pass {
+        width: 70%;
+      }
+    
+      #logo img{
+        width: 120px;
+    }
+
+    #text p{
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    #login{
+        width: 80vw;
+      }
+    
+      #login-input input, #login-btn button{
+        width: 60vw;
+      }
+    
+      #forget-pass {
+        width: 75%;
+      }
+
+      #logo img{
+        width: 100px;
+    }
+
+    #text p{
+        font-size: 16px;
+    }
+    
+   
+}

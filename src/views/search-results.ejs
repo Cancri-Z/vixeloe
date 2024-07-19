@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vixeloe</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/search-result.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/scrollbar-design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="/">
+                <img src="/img/vixeloe-logo2b-removebg-preview.png" alt="vixeloe">
+            </a>
+        </div>
+
+         
+        <div id="search" class="search-container">
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Search for brands and products..." autocomplete="off">
+                <button id="searchButton" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="suggestions-list"></div>
+        </div>
+
+
+        <div id="svx">
+            <div id="sellX">
+                <a href="/sell">
+                    <div>
+                        <div class="hmxX">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/></svg>
+                        </div>
+                    </div>
+                    <div id="fam">Sell</div>
+                </a>
+            </div>
+            <div id="logX"><a href="/login">Sign Up/Login</a></div>
+            <div id="toggle">
+                <div id="togglebar"><i class="fa-solid fa-bars"></i></div>
+                <div id="toggle-content">
+                    <div id="cnl1" style="color: #fff">✖</div>
+                    <div id="brands" class="vive">
+                        <div id="brands-btnX">Brands▼</div>
+                        <div id="hidden-brandsX">
+                            <div id="cnlX">✖</div>
+                            <a href="/brand/Samsung">Samsung</a>
+                            <a href="/brand/iPhone">iPhone</a>
+                            <a href="/brand/Infinix">Infinix</a>
+                            <a href="/brand/Tecno">Tecno</a>
+                            <a href="/brand/Lenovo">Lenovo</a>
+                            <a href="/brand/Itel">Itel</a>
+                            <a href="/brand/Huawei">Huawei</a>
+                            <a href="/brand/Gionee">Gionee</a>
+                            <a href="/brand/Oppo">Oppo</a>
+                            <a href="/brand/Sony">Sony</a>
+                        </div>
+                    </div>
+                    <div class="vive"><a href="/items">My items</a></div>
+                    <div id="about" class="vive"><a href="">About</a></div>
+                    <div id="notification" class="vive"><a href="/notification"><i class="fa-solid fa-bell"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="nav">
+            <div id="brands">
+                <div id="brands-btn">Brands▼</div>
+                <div id="hidden-brands">
+                    <div id="cnl">✖</div>
+                    <a href="/brand/Samsung">Samsung</a>
+                    <a href="/brand/iPhone">iPhone</a>
+                    <a href="/brand/Infinix">Infinix</a>
+                    <a href="/brand/Tecno">Tecno</a>
+                    <a href="/brand/Lenovo">Lenovo</a>
+                    <a href="/brand/Itel">Itel</a>
+                    <a href="/brand/Huawei">Huawei</a>
+                    <a href="/brand/Gionee">Gionee</a>
+                    <a href="/brand/Oppo">Oppo</a>
+                    <a href="/brand/Sony">Sony</a>
+                </div>
+            </div>
+            <div id="ads"><a href="/items">My Items</a></div>
+            <div id="sell">
+                <a href="/sell">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/></svg>
+                    </div>
+                    <div>Sell</div>
+                </a>
+            </div>
+            <div id="about"><a href="">About</a></div>
+            <div id="notification"><a href="/notification"><i class="fa-solid fa-bell"></i></a></div>
+            <% if (user) { %>
+                <div id="welcome">
+                  <p>Welcome, <%= user.username %>!</p>
+                  <p><a href="/logout">Logout</a></p>
+                </div>
+              <% } else { %>
+                <div id="auth-links">
+                  <a href="/login">Login</a>
+                  <a href="/signup">Sign Up</a>
+                </div>
+              <% } %>
+        </div>
+    </header>
+    <main>
+        
+        <div id="result">
+            <h1 id="search-query-display"><i class="fa-solid fa-magnifying-glass"></i></h1>
+            <h1>Search Results for "<%= query %>"</h1>
+        </div>
+        
+        <div id="layout">
+            <div id="Ads">
+                <div id="filter">                        
+                    <div id="titleX">
+                        <i class="fa-solid fa-filter"></i>Filter
+                        <span class="close-icon">&times;</span>
+                    </div>
+                   
+                    <div class="aside">
+                        <div id="title"><i class="fa-solid fa-filter"></i> Filter</div>
+        
+                        <div class="bag">
+                            <div class="price underline">
+                                <div class="heading">Price-range</div>
+                                <div id="minmax">
+                                    <div class="min">
+                                        <div class="thick">Minimum Price</div>
+                                        <div><input type="radio" name="min" value="10" id="10"><label for="10">₦ 10,000</label></div>
+                                        <div><input type="radio" name="min" value="20" id="20"><label for="20">₦ 20,000</label></div>
+                                        <div><input type="radio" name="min" value="30" id="30"><label for="30">₦ 40,000</label></div>
+                                        <div><input type="radio" name="min" value="40" id="40"><label for="40">₦ 50,000</label></div>
+                                        <div><input type="radio" name="min" value="50" id="50"><label for="50">₦ 70,000</label></div>
+                                        <div><input type="radio" name="min" value="60" id="60"><label for="60">₦ 100,000</label></div>
+                                    </div>
+                                    <div class="max">
+                                        <div class="thick">Maximum Price</div>
+                                        <div><input type="radio" name="max" value="10.2" id="10.2"><label for="10.2">₦ 30,000</label></div>
+                                        <div><input type="radio" name="max" value="20.2" id="20.2"><label for="20.2">₦ 50,000</label></div>
+                                        <div><input type="radio" name="max" value="30.2" id="30.2"><label for="30.2">₦ 100,000</label></div>
+                                        <div><input type="radio" name="max" value="40.2" id="40.2"><label for="40.2">₦ 200,000</label></div>
+                                        <div><input type="radio" name="max" value="50.2" id="50.2"><label for="50.2">₦ 500,000</label></div>
+                                        <div><input type="radio" name="max" value="60.2" id="60.2"><label for="60.2">₦ 1,000,000</label></div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="ram underline">
+                                <div class="heading">RAM(working memory) / ROM(storage space)</div>
+                                    <div id="ram">
+                                        <div id="ram-1">
+                                            <div class="ram-x"><input type="radio" name="ram" value="1" id="ram-q"><label for="ram-q">1GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="2" id="ram-w"><label for="ram-w">2GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="3" id="ram-e"><label for="ram-e">3GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="4" id="ram-r"><label for="ram-r">4GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="5" id="ram-t"><label for="ram-t">5GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="6" id="ram-y"><label for="ram-y">6GB - RAM</label></div>
+                                            <div class="ram-x"><input type="radio" name="ram" value="8" id="ram-u"><label for="ram-u">8GB - RAM</label></div>
+                                        </div>
+        
+                                        <div id="ram-1">
+                                            <div class="ram-x"><input type="radio" name="rom" value="1" id="rom-1"><label for="rom-1">8GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="2" id="rom-2"><label for="rom-2">16GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="3" id="rom-3"><label for="rom-3">32GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="4" id="rom-4"><label for="rom-4">64GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="5" id="rom-5"><label for="rom-5">128GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="6" id="rom-6"><label for="rom-6">256GB - ROM</label></div>
+                                            <div class="ram-x"><input type="radio" name="rom" value="8" id="rom-7"><label for="rom-7">512GB - ROM</label></div>
+                                        </div>
+                                    </div>
+                            </div>
+        
+                            <div class="ram underline">
+                                <div class="heading">Camera Quality(Megapixels) / Battery-life(mAh)</div>
+                                    <div id="ram">
+                                        <div id="ram-1">
+                                            <div class="ram-x"><input type="radio" name="cam" value="1" id="cam-1"><label for="cam-1">8 - 12 MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="2" id="cam-2"><label for="cam-2">13 - 20 MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="3" id="cam-3"><label for="cam-3">21 - 32 MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="4" id="cam-4"><label for="cam-4">48MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="5" id="cam-5"><label for="cam-5">64MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="6" id="cam-6"><label for="cam-6">108MP</label></div>
+                                            <div class="ram-x"><input type="radio" name="cam" value="8" id="cam-7"><label for="cam-7">200MP</label></div>
+                                        </div>
+        
+                                        <div id="ram-1">
+                                            <div class="ram-x"><input type="radio" name="bat" value="1" id="bat-1"><label for="bat-1">3000 mAh</label></div>
+                                            <div class="ram-x"><input type="radio" name="bat" value="2" id="bat-2"><label for="bat-2">3000 - 3,999 mAh</label></div>
+                                            <div class="ram-x"><input type="radio" name="bat" value="3" id="bat-3"><label for="bat-3">4,000 - 4,999 mAh</label></div>
+                                            <div class="ram-x"><input type="radio" name="bat" value="4" id="bat-4"><label for="bat-4">5,000 - 5,999 mAh</label></div>
+                                            <div class="ram-x"><input type="radio" name="bat" value="5" id="bat-5"><label for="bat-5">6,000 mAh and above</label></div>
+                                        </div>
+                                    </div>
+                            </div>
+        
+                            <div class="last underline">
+                                <div class="ram" id="color-c">
+                                    <div class="heading">Color</div>
+                                        <div id="ram-1">
+                                            <div class="ram-x rife"><input type="radio" name="col" value="5" id="col-1">
+                                                <label for="col-1">Red<div class="indicator" style="background-color: red;"></div></label>
+                                            </div>
+                                            <div class="ram-x rife"><input type="radio" name="col" value="5" id="col-2">
+                                                <label for="col-2">Blue<div class="indicator" style="background-color: blue;"></div></label>
+                                            </div>
+                                            <div class="ram-x rife"><input type="radio" name="col" value="5" id="col-3">
+                                                <label for="col-3">Green<div class="indicator" style="background-color: green;"></div></label>
+                                            </div>
+                                            <div class="ram-x rife"><input type="radio" name="col" value="5" id="col-4">
+                                                <label for="col-4">Silver<div class="indicator" style="background-color: silver ;"></div></label>
+                                            </div>
+                                            <div class="ram-x rife"><input type="radio" name="col" value="5" id="col-5">
+                                                <label for="col-5">Purple<div class="indicator" style="background-color: purple;"></div></label>
+                                            </div>
+                                        </div>
+                                </div>
+        
+                                <div class="ramV">
+                                    <div class="heading">Condition</div>
+                                        <div id="ram-1" class="condt">
+                                            <div class="ram-x">
+                                                <input type="radio" name="condition" id="new"><label for="new">New</label>
+                                            </div>
+                                            <div class="ram-x">
+                                                <input type="radio" name="condition" id="refurbished"><label for="refurbished">Refurbished</label>
+                                            </div>
+                                            <div class="ram-x">
+                                                <input type="radio" name="condition" id="used"><label for="used">Used</label>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                                
+        
+                            <div id="conX">
+                                <div class="heading">Used-Type</div>
+                                    <div class="conXX">
+                                        <div class="ram-x">
+                                            <input type="radio" name="used" id="UK"><label for="UK">UK Used</label>
+                                        </div>
+                                        <div class="ram-x">
+                                            <input type="radio" name="used" id="NG"><label for="NG">Nigerian Used</label>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                        
+        
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="banner-image">
+                    <img src="/img/banner-1.webp" alt="">  
+                </div> 
+            </div>
+
+            
+
+            <div id="prd-display">
+                <% if (products && products.length > 0) { %>
+                    <% products.forEach(function(product) { %>
+                        <div class="items">
+                            <a href="/product/<%= product._id %>">
+                                <img src="<%= product.image %>" alt="<%= product.product_name %>">
+                                <div class="details">
+                                    <p class="name"><%= product.product_name %></p>
+                                    <p class="condition"><%= product.condition %></p>
+                                    <p class="price">&#8358;<%= product.price.toFixed(2) %></p>
+                                    <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="location"><i class="fa-solid fa-location-dot"></i> <%= product.location %></p>
+                                </div>
+                            </a>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No products found for "<%= query %>".</p>
+                <% } %>
+            </div>
+        </div>
+
+        <div id="pagination-container"></div>
+
+        <div id="relatedsearch-section">
+            <div id="related-text">
+                <p>RELATED SEARCHS</p>
+                <p>See All</p>
+            </div>
+
+
+            <div id="related-search"> 
+                
+                    <div id="related-prd-container">
+
+                        <div class="related-prd">
+                            <img src="" alt="">
+
+                            <div class="details"></div>
+                        </div>
+                    </div>    
+                    <button id="scroll-left"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="scroll-right"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div id="topsearch-section">
+            <div id="topsearch-text">
+                <p>TOP SEARCHS</p>
+                <p>See All</p>
+            </div>
+            <div id="topserach">
+            
+                <button class="scroll-btn left-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="product-container">
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+                
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+
+                <div class="top-prd">
+                    <img src="" alt="">
+
+                    <div class="details">
+                    <div class="name">product Name</div>
+                    <div class="condition">Condition</div>
+                    <div class="price">&#8358; 20,000</div>
+                    <div class="rating"> &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Ikeja</div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-btn right-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="ftx">
+            <div id="terms">
+                <a href="">Terms and conditions</a>
+                <a href="">Privacy policies</a>
+                <a href="">Payments protocol</a>
+            </div>
+            <div id="nlx">
+                <div id="sbs">Subscribe to our newsletter</div>
+                <div>
+                    <form action="">
+                        <label for="email">Email</label>
+                        <input type="text">
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="abt">
+                <div class="center"><a href="">About Us</a></div>
+                <div class="center" id="mail-link"><a href=""><i class="fa-solid fa-envelope"></i> minoe@gmail.com</a></div>
+            </div>
+        </div>
+        <div id="line"></div>
+        <div id="socials">
+            <a href=""><img src="/img/icons/211902_social_facebook_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/11244080_x_twitter_elon musk_twitter new logo_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/1161953_instagram_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/216394_linkedin_social_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/8547041_tiktok_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/thread-icon.png" alt=""></a>
+        </div>
+    </footer>
+
+    <script src="/js/filter.js"></script>
+    <script src="/js/toggle.js"></script>
+    <script src="/js/search-results.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/search-handler.js"></script>
+    <script src="/js/related-search-btn.js"></script>
+
+</body>
+</html>

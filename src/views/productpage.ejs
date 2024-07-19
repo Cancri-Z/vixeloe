@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vixeloe</title>
+    <link rel="stylesheet" href="/css/productpage.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/scrollbar-design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="/img/vixeloe-logo2b-removebg-preview.png" alt="vixeloe">
+        </div>
+
+        <div id="search" class="search-container">
+            <form id="searchForm"  action="/search-results" method="GET">
+                <input type="text" id="searchInput" name="query" placeholder="Search for brands and products..." autocomplete="off">
+                <button id="searchButton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="suggestions-list"></div>
+        </div>
+
+        <div id="svx">
+            <div id="sellX">
+                <a href="/sell">
+                    <div>
+                        <div class="hmxX">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/></svg>
+                        </div>
+                    </div>
+                    <div id="fam">Sell</div>
+                </a>
+            </div>
+            <div id="logX"><a href="/login">Sign Up/Login</a></div>
+            <div id="toggle">
+                <div id="togglebar"><i class="fa-solid fa-bars"></i></div>
+                <div id="toggle-content">
+                    <div id="cnl1" style="color: #fff">✖</div>
+                    <div id="brands" class="vive">
+                        <div id="brands-btnX">Brands▼</div>
+                        <div id="hidden-brandsX">
+                            <div id="cnlX">✖</div>
+                            <a href="/brand/Samsung">Samsung</a>
+                            <a href="/brand/iphone">iPhone</a>
+                            <a href="/brand/Infinix">Infinix</a>
+                            <a href="/brand/Tecno">Tecno</a>
+                            <a href="/brand/Lenovo">Lenovo</a>
+                            <a href="/brand/Itel">Itel</a>
+                            <a href="/brand/Huawei">Huawei</a>
+                            <a href="/brand/Gionee">Gionee</a>
+                            <a href="/brand/Oppo">Oppo</a>
+                            <a href="/brand/Sony">Sony</a>
+                        </div>
+                    </div>
+                    <div class="vive"><a href="/items">My items</a></div>
+                    <div id="about" class="vive"><a href="">About</a></div>
+                    <div id="notification" class="vive"><a href="/notification"><i class="fa-solid fa-bell"></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="nav">
+            <div id="brands">
+                <div id="brands-btn">Brands▼</div>
+                <div id="hidden-brands">
+                    <div id="cnl">✖</div>
+                    <a href="/brand/Samsung">Samsung</a>
+                    <a href="/brand/iphone">iPhone</a>
+                    <a href="/brand/Infinix">Infinix</a>
+                    <a href="/brand/Tecno">Tecno</a>
+                    <a href="/brand/Lenovo">Lenovo</a>
+                    <a href="/brand/Itel">Itel</a>
+                    <a href="/brand/Huawei">Huawei</a>
+                    <a href="/brand/Gionee">Gionee</a>
+                    <a href="/brand/Oppo">Oppo</a>
+                    <a href="/brand/Sony">Sony</a>
+                </div>
+            </div>
+            <div id="ads"><a href="/items">My Items</a></div>
+            <div id="sell">
+                <a href="/sell">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/></svg>
+                    </div>
+                    <div>Sell</div>
+                </a>
+            </div>
+            <div id="about"><a href="">About</a></div>
+            <div id="notification"><a href="/notification"><i class="fa-solid fa-bell"></i></a></div>
+            <% if (user) { %>
+                <div id="welcome">
+                  <p>Welcome, <%= user.username %>!</p>
+                  <p><a href="/logout">Logout</a></p>
+                </div>
+              <% } else { %>
+                <div id="auth-links">
+                  <a href="/login">Login</a>
+                  <a href="/signup">Sign Up</a>
+                </div>
+              <% } %>
+        </div>
+    </header>
+    <main>
+       
+        <div id="prd-card">
+            <div id="prd-slot"> 
+                <div id="prd-img">
+                    <img src="" alt="" class="active" style="background-color: aqua;">
+                    <img src="" alt="" style="background-color: red">
+                    <img src="" alt="" style="background-color: blue;">
+                    <img src="" alt="" style="background-color: orange;">
+
+                    <div id="indicatorsX">
+                        <div id="dots-container"></div>
+                    </div>
+
+                    <div id="img-controls">
+                        <button id="prev-btn">&#10094;</button>
+                        <button id="next-btn">&#10095;</button>
+                    </div>
+                </div> 
+            </div>    
+
+            <div id="prd-details">
+                <p class="product-name"><%= product.product_name %></p>
+                <p class="product-description"><%= product.description %></p>
+                <p class="product-brand">Brand: <a href=""><%= product.brand %><span>&copy;</span></a></p>
+                <p class="product-condition">Condition: <%= product.condition %></p>
+                <p id="Price" class="product-price">Price: &#8358;<%= product.price %></p>
+               
+
+                <p id="Location">
+                    <span><i class="fa-solid fa-location-dot"></i>  <%= product.location %> </span>
+                    <span id="stf">
+                        <span id="eyes">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#888"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/></svg>
+                            500 views
+                        </span>
+                        <span>Free</span>
+                    </span>
+                </p>
+
+
+                <p id="lvtm"><span>Live since:</span> <span>1 hr ago.</span></p>
+
+
+                <details>
+                    <summary>
+                        <i class="fa-regular fa-address-book"></i>
+                        <div id="-ppt">CONTACT SELLER</div>
+                    </summary>
+                    <div id="details-content">
+                        <p id="storeN">Chidebere Ventures</p>
+                        <p id="storeP">
+                            <span class="Logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#666"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
+                            </span>
+                            <span class="label">Phone no:</span> <span class="labelA"><%= product.contact %></span>
+                        </p>
+                        <p id="storeW"><span class="Logo"><i class="fa-brands fa-whatsapp"></i></span> <span class="label">Whatsapp:</span> <span class="labelA">+(234)-814-692-2131</span></p>
+                        <p id="storeA">2 board of directors way off follow who know road street</p>
+                        <p id="mov">
+                            <a href="/messages">
+                                <span>Message on Vixeloe</span>
+                                <span id="-msgic">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+
+        <div class="info">
+            <div>
+                <p>copy link to the product <i class="fa-solid fa-link"></i></p>
+                <a href="">Details of this product is incorrect? Report.</a>
+            </div>
+            <div>
+                <a href="" id="-fdb">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M480-360q17 0 28.5-11.5T520-400q0-17-11.5-28.5T480-440q-17 0-28.5 11.5T440-400q0 17 11.5 28.5T480-360Zm-40-160h80v-240h-80v240ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+                    <span>Leave feedback</span>
+                </a>
+            </div>
+            <div>
+                <button>Follow Seller</button>
+            </div>
+        </div>
+
+
+        <div id="rvw">
+            <a href="">Review | <span>view all 250 <i class="fa-solid fa-arrow-right"></i></span></a>
+        </div>
+
+
+        <div id="-spcf">
+            <div class="sp-table">
+                <div class="thead">Specifications</div>
+                <div class="tbody">
+                    <div id="tbody-1">
+                        <div>Brand</div>
+                        <div>Model</div>
+                        <div>Release Date</div>
+                        <div>Dimensions</div>
+                        <div>Weight</div>
+                        <div>Build Material</div>
+                        <div>Display Size</div>
+                        <div>Resolution</div>
+                        <div>Display Type</div>
+                        <div>Refresh Rate</div>
+                        <div>Processor</div>
+                        <div>GPU</div>
+                        <div>RAM</div>
+                        <div>Internal Storage</div>
+                        <div>Expandable Storage</div>
+                        <div>OS</div>
+                        <div>Rear Cameras</div>
+                        <div>Front Camera</div>
+                        <div>Battery Capacity</div>
+                        <div>Charging</div>
+                        <div>Network</div>
+                        <div>SIM</div>
+                        <div>Wi-Fi</div>
+                        <div>Bluetooth</div>
+                        <div>NFC</div>
+                        <div>GPS</div>
+                        <div>Fingerprint Sensor</div>
+                        <div>Face Unlock</div>
+                        <div>Other Sensors</div>
+                        <div>Speakers</div>
+                        <div>Headphone Jack</div>
+                        <div>Audio Features</div>
+                        <div>Water/Dust Resistance</div>
+                        <div>Special Features</div>
+                    </div>
+                    <div id="tbody-2">
+                        <div><%= product.brand %></div>
+                        <div><%= product.model %></div>
+                        <div><%= product.releaseDate %></div>
+                        <div><%= product.dimensions %></div>
+                        <div><%= product.weight %></div>
+                        <div><%= product.buildMaterial %></div>
+                        <div><%= product.displaySize %></div>
+                        <div><%= product.resolution %></div>
+                        <div><%= product.displayType %></div>
+                        <div><%= product.refreshRate %></div>
+                        <div><%= product.processor %></div>
+                        <div><%= product.gpu %></div>
+                        <div><%= product.ram %></div>
+                        <div><%= product.internalStorage %></div>
+                        <div><%= product.expandableStorage %></div>
+                        <div><%= product.os %></div>
+                        <div><%= product.rearCameras %></div>
+                        <div><%= product.frontCamera %></div>
+                        <div><%= product.batteryCapacity %></div>
+                        <div><%= product.charging %></div>
+                        <div><%= product.network %></div>
+                        <div><%= product.sim %></div>
+                        <div><%= product.wifi %></div>
+                        <div><%= product.bluetooth %></div>
+                        <div><%= product.nfc %></div>
+                        <div><%= product.gps %></div>
+                        <div><%= product.fingerprintSensor %></div>
+                        <div><%= product.faceUnlock %></div>
+                        <div><%= product.otherSensors %></div>
+                        <div><%= product.speakers %></div>
+                        <div><%= product.headphoneJack %></div>
+                        <div><%= product.audioFeatures %></div>
+                        <div><%= product.waterDustResistance %></div>
+                        <div><%= product.specialFeatures %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+        <div class="rating-container">
+            <div class="star-rating">
+                <span class="rating">RATE HERE</span>
+              <span class="star" data-rating="1">&#9733;</span>
+              <span class="star" data-rating="2">&#9733;&#9733;</span>
+              <span class="star" data-rating="3">&#9733;&#9733;&#9733;</span>
+              <span class="star" data-rating="4">&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="star" data-rating="5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </div>
+            <div class="comment-section">
+              <textarea placeholder="Write your comment here..."></textarea>
+              <button class="submit-btn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="display-section"></div>
+
+        
+    </main>
+    <footer>
+        <div id="ftx">
+            <div id="terms">
+                <a href="">Terms and conditions</a>
+                <a href="">Privacy policies</a>
+                <a href="">Payments protocol</a>
+            </div>
+            <div id="nlx">
+                <div id="sbs">Subscribe to our newsletter</div>
+                <div>
+                    <form action="">
+                        <label for="email">Email</label>
+                        <input type="text">
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="abt">
+                <div class="center"><a href="">About Us</a></div>
+                <div class="center" id="mail-link"><a href=""><i class="fa-solid fa-envelope"></i> minoe@gmail.com</a></div>
+            </div>
+        </div>
+        <div id="line"></div>
+        <div id="socials">
+            <a href=""><img src="/img/icons/211902_social_facebook_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/11244080_x_twitter_elon musk_twitter new logo_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/1161953_instagram_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/216394_linkedin_social_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/8547041_tiktok_icon.png" alt=""></a>
+            <a href=""><img src="/img/icons/thread-icon.png" alt=""></a>
+        </div>
+    </footer>
+
+<script src="/js/productpage.js"></script>
+<script src="/js/rating.js"></script>
+<script src="/js/toggle.js"></script>
+
+</body>
+</html>    

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="/css/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Vixeloe</h2>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#all" class="active"><i class="fas fa-bell"></i><span class="label">All</span></a></li>
+                    <li><a href="#mentions"><i class="fas fa-at"></i><span class="label">Mentions</span></a></li>
+                    <li><a href="#comments"><i class="fas fa-comment"></i><span class="label">Comments</span></a></li>
+                    <li><a href="#likes"><i class="fas fa-heart"></i><span class="label">Likes</span></a></li>
+                    <li><a href="#follows"><i class="fas fa-user"></i><span class="label">Follows</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <header class="header">
+                <h1>Notifications</h1>
+                <button class="clear-btn">Clear All</button>
+            </header>
+            <section id="notifications" class="notifications">
+                <div class="notification new">
+                    <i class="fas fa-bell icon"></i>
+                    <div class="notification-content">
+                        <p><strong>John Doe</strong> mentioned you in a comment.</p>
+                        <span class="time">5 mins ago</span>
+                    </div>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-heart icon"></i>
+                    <div class="notification-content">
+                        <p><strong>Jane Smith</strong> liked your post.</p>
+                        <span class="time">10 mins ago</span>
+                    </div>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-user icon"></i>
+                    <div class="notification-content">
+                        <p><strong>Michael Lee</strong> started following you.</p>
+                        <span class="time">15 mins ago</span>
+                    </div>
+                </div>
+                <div class="notification new">
+                    <i class="fas fa-comment icon"></i>
+                    <div class="notification-content">
+                        <p><strong>Emily Clark</strong> commented on your post.</p>
+                        <span class="time">20 mins ago</span>
+                    </div>
+                </div>
+                <!-- Add more notifications as needed -->
+            </section>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

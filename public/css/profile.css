@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1150px){
+    .container{
+        padding-top: 150px !important;
+    }
+  }
+
+  button{
+    cursor: pointer;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 90px;
+  }
+  
+  .profile-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    line-height: 50px;
+  }
+
+  @media (max-width: 750px){
+    .profile-card{
+      flex-direction: column;
+    }
+  }
+  
+  .profile-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .profile-info {
+    padding: 20px;
+    flex: 1;
+  }
+
+#profilePicture{
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+#editButton{
+    background-color: #b19f9f;
+    border: none;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-style: oblique;
+    font-weight: bold;
+    padding: 5px;
+    border: 3px solid #888;
+    margin: 10px 0;
+}
+  
+  .profile-info .label {
+    font-weight: bold;
+  }
+
+  #editButton{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 300ms ease;
+  }
+
+  #editButton:hover{
+    background-color: orange;
+    box-shadow: .1px .1px 3px .1px #555;
+    color: black;
+    transform: translateY(3px);
+  }
+  
+  .edit-form {
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .edit-form:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .edit-form input,
+  .edit-form textarea,
+  .edit-form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .edit-form input:focus,
+  .edit-form textarea:focus,
+  .edit-form select:focus {
+    outline: none;
+    border-color: #6c63ff;
+  }
+  
+  .edit-form button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-form button:hover {
+    background-color: #5a51d8;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+.label{
+    color: #302f2f;
+}
+
+.hidden {
+    display: none;
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+  }
+
+  #closeModalButton{
+    float: right
+  }
+
+#fulName{
+  text-transform: capitalize;
+}
+
+#cameraFeed{
+  height: fit-content;
+  display: flex;
+  padding: none;
+}
+
+#captureButton{
+  color: orange;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px;
+  background-color: #fff;
+  box-shadow: .1px .1px 5px .1px #555;
+  margin-block: auto;
+  transition: all 300ms ease;
+}
+
+#captureButton div{
+  font-weight: bold;
+  font-style: oblique;
+}
+
+#captureButton:hover{
+  transform: translateY(-5px);
+  box-shadow: .1px .1px 15px .1px #555;
+  color: #888;
+}
+
+#videoElement{
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+

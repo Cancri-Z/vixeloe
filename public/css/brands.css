@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root{
+    --dark-color: rgb(46, 76, 131);
+    --primary-color: rgb(48, 185, 192);
+    --text-color: rgb(255, 247, 247);
+    --secondary-color: rgb(54, 51, 51);
+    }
+
+main{
+    padding-top: 70px;
+}
+
+#categ-ban {
+    display: flex;
+    position: relative;
+}
+
+#filter{
+    margin-top: 10px;
+    max-height: 80vh; /* Adjust this value as needed */
+    overflow-y: auto
+}
+
+#titleX{
+    position: fixed;
+    font-weight: bold;
+    display: flex;
+    font-size: 20px;
+    height: 34px;
+    padding: 10px;
+    margin-left: 10px;
+    width: 25%;
+    z-index: 2;
+    display: flex;
+    background-color: var(--text-color);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 5px;
+    border-radius: 8px 8px 0 0 ;
+}
+
+.aside{
+    height: calc(100vh - 100px);
+    width: 25%;
+    position: fixed;
+    top: 70px;
+    font-size: 14px;
+    padding: 10px;
+    background-color: var(--text-color);
+    margin: 10px;
+    overflow-y: auto;
+    scrollbar-width: 2px;
+    scroll-behavior: smooth;
+    border-radius: 0 0 8px 8px;
+}
+
+#condition{
+    position: relative;
+      margin-left: 110px;
+      top: 15px;
+}
+
+.ramV label{
+    width: fit-content;
+    font-family: 'PT Mono' monospace;
+}
+
+#TypeC{
+    width: fit-content; 
+    position: relative;
+    top: 40px;
+    float: right;
+    margin-right: 10%;
+    height: 100px;
+}
+
+#conXX{
+    border: 1px solid orange;
+}
+
+.min, .max{
+    padding-inline: 10px;
+    border: 1px solid orange;
+}
+
+.min div,
+.max div{
+    padding: 5px 0;
+}
+
+.min label,
+.max label{
+    font-family: 'PT Mono';
+    font-weight: bold;
+}
+
+#minmax{
+    display: flex;
+    gap: 10px;
+    font-family: 'PT Mono' monospace;
+    justify-content: center;
+}
+
+input[type="radio"]{
+    position: relative;
+    top: .5px;
+    margin-right: 5px;
+    color: #888;
+}
+
+
+#color-c{
+    float: left;
+}
+
+.indicator{
+    width: 10px;
+    height: 10px;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.heading{
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #888;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.bag{
+    position: relative;
+    top: 30px;
+}
+
+.thick{
+    font-weight: 600;
+    color: rgb(223, 166, 59);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.underline{
+    border-bottom: 1px solid rgb(224, 208, 208);
+    padding-bottom: 16px;
+}
+
+.ram{
+    margin-top: 16px;
+    font-family: 'PT Mono', monospace;
+    font-weight: bold;
+}
+
+#ram-1{
+    border: 1px solid orange;
+    padding: 10px;
+    width: fit-content;
+    margin-inline: auto;
+    font-family: 'PT Mono', monospace;
+    font-weight: bold;
+}
+
+.ram-x{
+    padding: 5px;
+    font-family: 'PT Mono', monospace;
+    font-weight: bold;
+}
+
+#ram{
+    display: flex;
+    font-size: 12px;
+}
+
+.rife{
+    display: flex;
+}
+
+.rife label{
+    display: flex;
+}
+
+
+#products-top {
+    width: 65%;
+    margin-right: 6%;
+    margin-left: auto;
+    margin-top: 10px;
+    position: relative;
+}
+
+
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
+    gap: 7px;
+    padding: 10px 5px;
+    margin: 30px 0;
+    border-radius: 6px;
+    width: 100%;
+    background-color: var(--text-color);
+    height: fit-content;
+}
+
+.prd-name{
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.products-container .deal{
+    height: fit-content;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: var(--text-color);
+    transition: all 300ms ease;
+}
+
+.products-container a{
+    text-decoration: none;
+    color: black;
+}
+
+.deal:hover{
+    transform: translateY(-6px);
+    box-shadow: var(--box-shadow);
+    border-radius: 3px;
+}
+
+.deal img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: optimizeQuality;
+    border-radius: 3px 3px 0 0;
+}
+
+.deal .details{
+    padding: 7px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.bizz-name{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #ecd9e2;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+.pName{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #333;
+    font-size: 16px !important;
+}
+
+.Price{
+    font-family: 'PT Mono', monospace;
+    font-size: 18px !important;
+    font-weight: bolder;
+    color: green;
+}
+
+.deal p{
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+}
+
+.cond{
+    font-style: italic;
+}
+
+.stars{
+    color: orange;
+}
+
+.location{
+    text-align: center;
+    color: #cb3788;
+    font-weight: bolder;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+#banner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+#banner img{
+    object-fit: cover;
+    object-position: center;
+    width: 98%;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.banner-img {
+    position: absolute;
+    top: 0;
+    right: 6px; 
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-color: #a8a2a2;
+}
+
+.banner-img.active {
+    opacity: 1;
+}
+
+#banner-container{
+    display: flex;
+    gap: 10px;
+    height: 400px;
+}
+
+#prev-btn {
+    left: 20px;
+  }
+  
+  #next-btn {
+    right: 20px;
+  }
+
+#prev-btn,
+#next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #555;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: .7;
+}
+
+#indicatorsX {
+    width: fit-content;
+    height: 13px;
+    position: absolute;
+    left: 44%;
+    bottom: 10px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+}
+
+#dot-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #4527cc;
+}
+
+@media screen and (max-width: 1150px) {
+    #categ-ban{
+        top: 30px;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));    
+        gap: 8px;
+    }
+
+   .aside{
+        top: 120px;
+        height: 85%;
+        width: fit-content;
+   }
+
+   #products-top{
+        margin-right: 10px;
+   }
+
+   #titleX{
+        width: 30%;
+   }
+
+
+}
+
+@media screen and (max-width: 1050px){
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));    
+        gap: 8px;
+    }
+
+    .products-container .deal{
+        height: fit-content;
+    }
+
+   #banner-container {
+        margin-left: 20px;
+        width: 95%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #categ-ban {
+        display: flex;
+       flex-direction: column;
+
+    }
+   
+    .products-container, footer {
+        width: 100%;
+        margin: 0;
+    }
+
+    #products-top{
+        width: 100%;
+    }
+   
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+        width: 95%;
+        margin-inline: auto;
+        margin-block: 30px;
+    }
+
+    #banner-container {
+        width: 100%;
+        margin: 10px auto;
+        height: 300px;
+    }
+   
+    .aside {
+        display: none;
+        position: fixed;
+        width: 40%;
+        top: 95px !important; 
+        left: 50%;
+        transform: translateX(-50%);
+        height: 85vh !important; 
+        background-color: var(--hd);
+        z-index: 1000;
+        overflow-y: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    #titleX .close-icon {
+        font-size: 24px; 
+        font-weight: bold;
+        color: var(--ft);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #titleX:hover {
+        background-color: orange;
+    }
+
+    .aside-content {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .bag {
+        width: 90%;
+        height: 100%; 
+    }
+
+    .aside.show {
+        display: flex;
+        position: fixed;
+    }
+
+    #titleX {
+        position: fixed;
+        top: 115px !important;
+        left: 8px;
+        z-index: 1001;
+        cursor: pointer;
+        width: fit-content;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    .blur {
+        filter: blur(5px);
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+    
+    .no-scroll {
+        overflow: hidden;
+        height: 100vh; 
+    }
+
+    .deal .details{
+        font-size: 13px;
+    }
+
+    
+}
+
+
+
+@media screen and (max-width: 725px) {
+    #prev-btn, #next-btn{
+        font-size: 12px;
+        height: 30px;
+        width: 30px;
+    }
+    
+    .aside{
+        width: 45vw;
+    }
+    
+    .dot{
+        width: 10px;
+        height: 10px;
+    }
+
+    #banner-container {
+        height: 260px;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+
+    }
+
+    .products-container .deal{
+        height: fit-content;
+    }
+
+    #titleX{
+        font-size: 10px;
+    }
+   
+}
+
+@media screen and (max-width: 605px) {
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
+    }
+
+    .products-container .deal{
+        height: fit-content;
+    }
+
+    .products-container .details{
+        font-size: 10px;
+    }
+
+    #banner-container {
+        height: 200px;
+    }
+    
+    .aside{
+        width: 53vw;
+    }
+}

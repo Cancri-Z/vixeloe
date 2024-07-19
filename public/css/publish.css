@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+/* Global reset and general styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif; /* Applying Google Font 'Poppins' */
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #63728f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+}
+
+header img{
+    height: 30px;
+    width: auto;
+    margin-block: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    margin-inline: auto;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main {
+    padding-top: 150px;
+    max-width: 100vw;
+}
+
+.packages {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 70%;
+    margin-inline: auto;
+}
+
+@media (max-width: 980px){
+    .packages{
+        width: 100%;
+    }
+}
+
+.package {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Ensure box shadow doesn't cause overflow */
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.package h3 {
+    color: #2e4c83;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.package p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.package ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package ul li {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.package ul li {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.publish-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #30b9c0;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(48, 185, 192, 0.3); /* Added box shadow for depth */
+}
+
+.publish-btn:hover {
+    background-color: #2e8bad;
+    transform: translateY(-2px); /* Lift the button slightly on hover */
+    box-shadow: 0px 6px 15px rgba(48, 185, 192, 0.5); /* Enhanced shadow on hover */
+}
+
+
+.selected-indicator {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    display: none;
+    font-size: 20px;
+    color: blue;
+    display: none;
+}
+
+.package.selected .selected-indicator {
+    display: block;
+}
+
+.price{
+    font-family: 'PT Mono', monospace;
+    color: #000;
+    font-weight: bolder;
+}
+
+strong{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+

@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+:root{
+    --hd: rgb(46, 76, 131);
+    --bg: rgb(48, 185, 192);
+    --ft: rgb(255, 247, 247);
+    --dk: rgb(54, 51, 51);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/SyE_byU0QRGqLUQCDjqyXw.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+}
+
+form{
+    width: 270px;
+}
+
+#login{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 2px 1px #333;
+    border-radius: 5px;
+    background-color: #99999977;
+    padding: 30px;
+}
+
+#logo,
+#text {
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img {
+    padding: 10px;
+    width: 150px;
+    background: linear-gradient(180deg, var(--bg), var(--hd));
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#text p {
+    font-size: 30px;
+    color: #d3d3d3;
+    background-color: #7373ca;
+    border-radius: 6px;
+    padding: 3px 15px;
+    box-shadow: 1px 1px 5px #333;
+}
+
+#text p:last-child{
+    margin-bottom: 30px;
+}
+
+input{
+    border: none;
+    outline: none;
+    background-color: #ffd5d5;
+}
+
+input:focus{
+    border: 2px solid #9999a8;
+}
+
+::placeholder{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: small;
+}
+
+#login-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-input input {
+    width: 30vw;
+    height: 40px;
+    margin: 7px;
+    padding: 10px;
+    font-size: medium;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    display: block;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-password::before {
+    content: "\f06e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #333;
+}
+
+.toggle-password.show-password::before {
+    content: "\f06e"; /* Closed eye icon */
+    color: #333;
+}
+
+.toggle-password.hide-password::before {
+    content: "\f070"; /* Open eye icon */
+    color: #333;
+}
+
+#forget-pass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 62%;
+    margin: 0 auto;
+}
+
+#forget-pass a {
+    text-decoration: none;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: var(--ft);
+}
+
+#terms{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#terms input {
+    width: 15px;
+    margin-top: -8px;
+}
+
+#terms a {
+    color: #fbf9f7;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+#terms a:hover{
+    text-decoration: underline;
+}
+
+#login-btn{
+    height: 40px;
+    display: flex;
+    margin: 0 auto;
+}
+
+#login-btn button{
+    width: 30vw;
+    height: 40px;
+    font-size: 20px;
+    background-color: var(--hd);
+    color: var(--ft);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: none;
+    transition: all 500ms ease;
+}
+
+#login-btn button:hover{
+    background-color: rgb(95, 51, 51);
+}
+
+@media screen and (max-width: 960px) {
+    #login{
+        width: 60vw;
+    }
+
+    #login-input #username, .password-input #password, .password-input #confirmPassword, #login-btn button {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #logo img{
+        width: 100px;
+    }
+
+    #text p{
+        font-size: 20px;
+    }
+
+    #login{
+        width: 70vw;
+    }
+
+    #login-input #username, .password-input #password, .password-input #confirmPassword, #login-btn button {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 635px) {
+  #login-input  #username, .password-input #password, .password-input #confirmPassword {
+        font-size: 12px;
+    }
+
+    #terms span{
+        font-size: 13px;
+    }
+
+    #login-btn button {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,603 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+:root{
+    --dark-color: rgb(46, 76, 131);
+    --primary-color: rgb(48, 185, 192);
+    --text-color: rgb(255, 247, 247);
+    --secondary-color: rgb(54, 51, 51);
+}
+
+header {
+    position: fixed;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    padding: 10px;
+    background: linear-gradient(180deg, var(--dark-color), var(--primary-color));
+    z-index: 1000;
+    font-size: 14px;
+}
+
+@media (max-width: 980px){
+    header{
+        height: 100px;
+        justify-content: space-between;
+    }
+
+    #search{
+        position: relative;
+        top: 8px;
+    }
+
+}
+
+@media (min-width: 980px) and (max-width: 1150px){
+    header{
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    header {
+        flex-direction: column;
+    }
+
+    #nav {
+        display: none !important;
+    }
+
+    #search {
+        width: 70%;
+    }
+
+    main{
+        padding-top: 150px;
+    }
+}
+
+header a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: fit-content;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+#selX, #logX{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#brands {
+    position: relative;
+    cursor: pointer;
+}
+
+#brands-btn {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#suggestions-list{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #999;
+    border-radius: 0 0 5px 5px;
+}
+
+#suggestions-list div{
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+#suggestions-list div:hover{
+    background-color: #999;
+}
+
+
+#hidden-brands {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    display: none;
+    left: -40px;
+    flex-direction: column;
+    transition: top 0.3s ease-in-out;
+    background-color: var(--primary-color);
+    width: 150px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+}
+
+#hidden-brands.show {
+    display: flex; /* Show when the show class is added */
+    animation: slideInFromTop 0.5s ease-in-out; /* Apply the bouncy effect */
+}
+
+#hidden-brands.hide {
+    animation: slideOutToTop 0.5s ease-in-out; /* Apply the slide out effect */
+    animation-fill-mode: forwards; /* Ensure it stays hidden after animation */
+}
+
+/* Keyframes for the bouncy effect */
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    60% {
+      transform: translateY(10%);
+    }
+    80% {
+      transform: translateY(-5%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-5%);
+    }
+    40% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+
+  
+#cnl {
+    margin-bottom: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#toggle {
+    position: relative;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+#togglebar.hidden {
+    display: none;
+  }
+  
+
+#togglebar {
+    font-size: 20px;
+    color: var(--text-color);
+    display: none;
+}
+
+#togglebar.hidden {
+    display: none;
+  }
+
+@media screen and (max-width: 1150px){
+    #togglebar{
+       display: block;
+    }
+}
+
+#toggle-content {
+    background-color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    display: none;
+    top: 0;
+    right: -3px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+    transition: transform 0.5s ease-in-out;
+}
+
+#toggle-content.show {
+    display: block; /* Show when the show class is added */
+    animation: slideInFromRight 0.5s ease-in-out; /* Apply the slide-in effect */
+}
+
+#toggle-content.hide {
+    animation: slideOutToRight 0.5s ease-in-out; /* Apply the slide-out effect */
+    animation-fill-mode: forwards; /* Ensure it stays hidden after animation */
+}
+
+/* Keyframes for the slide-in effect from the right */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+@media screen and (min-width: 1150px){
+    #toggle-content{
+       display: none;
+    }
+}
+
+.vive{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    margin-inline: auto;
+}
+
+.vive:hover{
+    box-shadow: 1px 1px 2px 1px #000;
+    border-radius: 5px;
+}
+
+#hidden-brands a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+#hidden-brands a:hover {
+    background-color: var(--text-color);
+    color: var(--dark-color);
+}
+
+#brands-btnX{
+    color: var(--text-color);
+}
+
+#hidden-brandsX{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    width: 150px;
+    background-color: var(--primary-color);
+    display: none;
+    border-radius: 5px;
+}
+
+#hidden-brandsX a{
+    padding: 6px 4px;
+    margin-inline: auto;
+    border-radius: 7px;
+    margin-bottom: 4px;
+    width: fit-content;
+}
+
+#hidden-brandsX a:hover {
+    box-shadow: 1px 1px 5px 1px #000;
+}
+
+#hidden-brandsX.show {
+    display: flex; /* Show when the show class is added */
+    animation: slideInFromTop 0.5s ease-in-out forwards; /* Apply the slide-in effect */
+}
+
+#hidden-brandsX.hide {
+    animation: slideOutToTop 0.5s ease-in-out forwards; /* Apply the slide-out effect */
+}
+
+/* Keyframes for the slide-in effect from the top */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+#cnlX{
+    color: var(--text-color);
+    width: fit-content;
+    float: left;
+    padding: 7px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    margin: auto;
+    width: 45%;
+    min-width: 500px;
+    position: relative;
+}
+
+#search form{
+    width: 100%;
+    display: flex;
+}
+
+#search input {
+    width: 90%;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    outline-width: .1px;
+    outline-color: orange;
+    outline-offset: -2px;
+    -moz-outline-radius: 4px 0 0 4px;
+    padding: 8px;
+    outline: none;
+}
+
+#search input:focus{
+    border: 2px solid #ffa500
+}
+
+#search input::placeholder{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#search button {
+    background-color: var(--secondary-color);
+    border-radius: 0 4px 4px 0;
+    border: none;
+    width: 30px;
+    font-size: 16px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms;
+}
+
+
+#search button:hover {
+    background-color: var(--highlight-color);
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    height: 30px;
+    width: auto;
+}
+
+#login {
+    background-color: orange;
+    border-radius: 4px;
+    padding: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#login:hover {
+    background-color: rgb(188, 139, 46);
+}
+
+#notification a{
+    font-size: 20px;
+}
+
+#login a {
+    color: var(--dark-color);
+}
+
+#sell {
+    width: fit-content;
+}
+
+#sell a {
+    display: flex;
+    gap: 3px;
+    border-radius: 20px;
+    background-color: var(--text-color);
+    padding: 2px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#sell a div:first-child {
+    background-color: var(--primary-color);
+    width: fit-content;
+    color: var(--text-color);
+    padding: 3px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sell a div:nth-child(2) {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+}
+
+#ads{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 13px 5px;
+    font-style: italic;
+}
+
+@media (max-width: 1240px) {
+    #ads a{
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+#ads a{
+    color: var(--primary-color)
+}
+
+#svx{
+    display: flex;
+    width: fit-content;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    gap: 20px;
+}
+
+@media (min-width: 1150px){
+    #svx{
+        display: none;
+    }
+}
+
+#sellX{
+    background-color: var(--text-color);
+    height: fit-content;
+    padding: 2px;
+    padding-right: 4px;
+    border-radius: 20px;
+    position: relative;
+    top: -3px;
+}
+
+#sellX #fam{
+    position: relative;
+    top: -1.5px;
+}
+
+#sellX a{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#sellX svg{
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    border-radius: 50%;
+    padding: 3px;
+    position: relative;
+    top: 3px;
+}
+
+#fam{
+    padding-right: 3px;
+    padding-top: 1px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#sellX a{
+    display: flex;
+    color: var(--dark-color);
+}
+
+#logX{
+    background-color: orange;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 3px;
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+#loX a{
+    color: #741374;
+}
+
+.hmx a{
+    background-color: var(--text-color);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    top: -2px;
+}
+
+.hmx svg{
+    position: relative;
+    top: -2px;
+    right: 1px;
+}
+
+.hmx:hover,
+.hmxX:hover{
+    transform: scale(1.1);
+    transition: all 200ms ease;
+}
+
+#sellX svg{
+    position: relative;
+    top: 1px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+.search-suggestions {
+    position: absolute;
+    border: 1px solid #585252;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #f6f6f6;
+  }
+  
+  .suggestion {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion:hover {
+    background-color: #474242;
+  }

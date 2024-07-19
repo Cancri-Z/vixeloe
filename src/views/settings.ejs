@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../public/css/settings.css ">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <a href="/index">
+        <img src="../public/img/vixeloe-logo-removebg-preview.png" alt="">
+    </a>
+    <div class="settings-container">
+        <h2><i class="fa-solid fa-gear"></i> Account Settings</h2>
+        <div class="settings-menu">
+            <button class="menu-item" id="profile-settings">Profile</button>
+            <button class="menu-item" id="security-settings">Security</button>
+            <button class="menu-item" id="notification-settings">Notifications</button>
+        </div>
+
+        <div class="settings-content" id="profile-content">
+            <h3>Profile Settings</h3>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+                
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="settings-content" id="security-content">
+            <h3>Security Settings</h3>
+            <form>
+                <a href="./forgetpassword.html">Reset Password</a>
+                <a href="#">Deactivate Account</a>
+                <a href="#">Delete Account</a>
+            </form>
+        </div>
+
+        <div class="settings-content" id="notification-content">
+            <h3>Notification Settings</h3>
+            <form>
+                <label>
+                    <input type="checkbox" name="email-notifications">
+                    Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" name="sms-notifications">
+                    SMS Notifications
+                </label>
+                <label>
+                    <input type="checkbox" name="push-notifications">
+                    Push Notifications
+                </label>
+                
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    const contentSections = document.querySelectorAll('.settings-content');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuItems.forEach(i => i.classList.remove('active'));
+            contentSections.forEach(section => section.classList.remove('active'));
+
+            item.classList.add('active');
+            const contentId = item.id.replace('settings', 'content');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+
+    // Initially activate the first menu item and content
+    menuItems[0].click();
+});
+
+    </script>
+</body>
+</html>

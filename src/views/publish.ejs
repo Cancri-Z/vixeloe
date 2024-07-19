@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish Product</title>
+    <link rel="stylesheet" href="/css/publish.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/scrollbar-design.css">
+</head>
+<body>
+    <header>
+        <img src="/img/vixeloe-logo2b-removebg-preview.png" alt="vixeloe">
+        <h1>Publishing Packages</h1>
+    </header>
+
+    <main>
+        <section class="packages">
+            <div class="package" data-package="free">
+                <h3>Free Package</h3>
+                <p>Basic listing without boost.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">Free</span></li>
+                    <li><strong>Duration:</strong> 3 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="basic">
+                <h3>Basic Package</h3>
+                <p>Boosts your product to a higher position in search results.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 800</span></li>
+                    <li><strong>Duration:</strong> 7 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="standard">
+                <h3>Standard Package</h3>
+                <p>Enhances visibility with a more prominent position in search results.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 1,500</span></li>
+                    <li><strong>Duration:</strong> 14 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="premium">
+                <h3>Premium Package</h3>
+                <p>Maximizes exposure with top-tier placement in search results.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 5,000</span></li>
+                    <li><strong>Duration:</strong> 30 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="quarterly">
+                <h3>Quarterly Package</h3>
+                <p>Boosts your product quarterly for optimal search visibility.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 13,500</span></li>
+                    <li><strong>Duration:</strong> 90 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="half-yearly">
+                <h3>Half-Yearly Package</h3>
+                <p>Extended boost period for sustained search prominence.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 25,000</span></li>
+                    <li><strong>Duration:</strong> 180 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+            <div class="package" data-package="annual">
+                <h3>Annual Package</h3>
+                <p>Continuous boost for a year-round high position in search results.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span class="price">₦ 48,000</span></li>
+                    <li><strong>Duration:</strong> 365 days</li>
+                </ul>
+                <button class="publish-btn">Purchase Now</button>
+                <div class="selected-indicator">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const packages = document.querySelectorAll('.package');
+
+    // Function to handle package selection and indicating
+    function selectPackage(packageElement) {
+        // Remove 'selected' class from all packages
+        packages.forEach(p => {
+            p.classList.remove('selected');
+            p.querySelector('.selected-indicator').style.display = 'none'; // Hide all indicators
+        });
+
+        // Add 'selected' class to the clicked package
+        packageElement.classList.add('selected');
+        packageElement.querySelector('.selected-indicator').style.display = 'block'; // Show selected indicator
+    }
+
+    // Function to handle publish button click
+    function handlePublishClick(packageElement) {
+        const selectedPackage = packageElement.dataset.package;
+
+        // Check if the package is already selected
+        if (!packageElement.classList.contains('selected')) {
+            // If not selected, select it and show indicator
+            selectPackage(packageElement);
+            return; // Exit function to wait for the second click
+        }
+
+        // Package is already selected, proceed to publish
+        alert(`You have selected the ${selectedPackage} package. Your product has been published!`);
+        // Perform actual publish actions here
+    }
+
+    // Add event listener to each package
+    packages.forEach(package => {
+        // Add event listener to the publish button within each package
+        const publishBtn = package.querySelector('.publish-btn');
+        publishBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling to parent elements
+            handlePublishClick(package);
+        });
+    });
+
+    // Select the free package by default
+    const defaultPackage = document.querySelector('.package[data-package="free"]');
+    selectPackage(defaultPackage);
+});
+
+    </script>
+</body>
+</html>
+
