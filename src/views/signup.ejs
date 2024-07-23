@@ -41,6 +41,8 @@
                 </div>
             </div>
 
+            <div id="general-error" class="error-message"></div>
+
             <div id="terms">
                 <input type="checkbox" required>
                 <a href=""><span>Agree to Terms and Conditions</span></a>
@@ -48,6 +50,13 @@
 
             <div id="login-btn">
                 <button type="submit">Sign Up</button>
+            </div>
+        </div>
+        <div id="success-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <p id="success-message"></p>
+                <button id="ok-button">OK</button>
             </div>
         </div>
     </form>

@@ -125,3 +125,5 @@ function displaySuggestions(suggestions) {
         suggestionsList.style.display = 'none';
     }
 }
+
+

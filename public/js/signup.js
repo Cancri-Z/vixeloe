@@ -18,10 +18,17 @@ document.getElementById('signup-form').addEventListener('submit', async function
     // Clear previous error messages
     document.getElementById('username-error').textContent = '';
     document.getElementById('email-error').textContent = '';
+    document.getElementById('general-error').textContent = '';
 
     const formData = new FormData(this);
     const data = {};
     formData.forEach((value, key) => (data[key] = value));
+
+    // Additional client-side validation (e.g., password match)
+    if (data.password !== data.confirmPassword) {
+        document.getElementById('general-error').textContent = 'Passwords do not match.';
+        return;
+    }
 
     try {
         const response = await fetch('/api/signup', {
@@ -35,20 +42,30 @@ document.getElementById('signup-form').addEventListener('submit', async function
         const result = await response.json();
 
         if (response.ok) {
-            alert(result.message); // Optional: Show a success message
-            this.reset(); // Clear the form inputs
-            window.location.href = result.redirect; // Redirect to the login page
+            document.getElementById('success-message').textContent = result.message; // Show success message
+            document.getElementById('success-modal').style.display = 'block'; // Display the modal
         } else {
+            // Display field-specific error messages
             if (result.field === 'username') {
                 document.getElementById('username-error').textContent = result.message;
-            }
-            if (result.field === 'email') {
+            } else if (result.field === 'email') {
                 document.getElementById('email-error').textContent = result.message;
+            } else {
+                // Handle other errors or general error messages
+                document.getElementById('general-error').textContent = result.message;
             }
-            alert(result.message); // Show generic error message
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred. Please try again.');
+        document.getElementById('general-error').textContent = 'An error occurred. Please try again.';
     }
+});
+
+// Modal handling
+document.getElementById('ok-button').addEventListener('click', function() {
+    window.location.href = '/login'; // Redirect to login page
+});
+
+document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('success-modal').style.display = 'none'; // Close the modal
 });

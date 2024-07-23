@@ -26,6 +26,22 @@ header {
     font-size: 14px;
 }
 
+.icons{
+    display: flex;
+
+}
+
+.icons a{
+    font-size: 20px;
+    padding: 5px;
+}
+
+#logout a{
+    font-size: 10px !important;
+    background-color: orange;
+    border-radius: 5px;
+}
+
 @media (max-width: 980px){
     header{
         height: 100px;

@@ -95,18 +95,21 @@
             </div>
             <div id="about"><a href="">About</a></div>
             <div id="notification"><a href="/notification"><i class="fa-solid fa-bell"></i></a></div>
-            <% if (user) { %>
-                <div id="welcome">
-                  <p>Welcome, <%= user.username %>!</p>
-                  <p><a href="/logout">Logout</a></p>
+
+            <% if (isLoggedIn) { %>
+                <div class="icons">
+                    <a href="/profile" class="profile-icon"><i class="fas fa-user"></i></a>
+                    <a href="/messages" class="message-icon"><i class="fas fa-envelope"></i></a>
+                    <p id="logout"><a href="/logout">Logout</a></p>
                 </div>
-              <% } else { %>
-                <div id="auth-links">
-                  <a href="/login">Login</a>
-                  <a href="/signup">Sign Up</a>
+            <% } else { %>
+                <div id="auth-links login">
+                    <a href="/login">Login/Sign Up</a>
                 </div>
-              <% } %>
+            <% } %>
         </div>
+        
+
     </header>
     <main>
         
