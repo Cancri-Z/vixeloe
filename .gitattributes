@@ -1,2 +1,5 @@
 *.vixeloe filter=lfs diff=lfs merge=lfs -text
 *.log filter=lfs diff=lfs merge=lfs -text
+data/db/journal/WiredTigerPreplog.0000000001 filter=lfs diff=lfs merge=lfs -text
+data/db/journal/WiredTigerPreplog.0000000002 filter=lfs diff=lfs merge=lfs -text
+data/db/journal/WiredTigerPreplog.* filter=lfs diff=lfs merge=lfs -text
