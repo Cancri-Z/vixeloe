@@ -153,6 +153,37 @@
     selectPackage(defaultPackage);
 });
 
+// When a package is selected and purchased
+function handlePublishClick(packageElement) {
+  const selectedPackage = packageElement.dataset.package;
+  
+  // Retrieve product data
+  const productData = JSON.parse(localStorage.getItem('pendingProduct'));
+  
+  // Combine with package data
+  const submissionData = {
+    product: productData,
+    package: selectedPackage
+  };
+  
+  // Send to server
+  fetch('/submit-product', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(submissionData),
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Product submitted for approval!');
+    localStorage.removeItem('pendingProduct'); // Clear stored data
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
     </script>
 </body>
 </html>

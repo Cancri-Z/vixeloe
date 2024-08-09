@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = 1;
   const limit = 21;
 
+   // Check if we're on the search results page
+   const isSearchResultsPage = window.location.pathname === '/search-results';
+
+   if (isSearchResultsPage) {
+     // The page is already rendered by the server, just set up pagination
+     setupPagination();
+   } else {
+     // We're not on the search results page, use the API
+     fetchSearchResults();
+   }
+ 
+   function setupPagination() {
+     const paginationData = JSON.parse(document.getElementById('pagination-data').textContent);
+     displayPagination(paginationData);
+   }
+
   async function fetchSearchResults(page = 1) {
       const urlParams = new URLSearchParams(window.location.search);
       const query = urlParams.get('query');

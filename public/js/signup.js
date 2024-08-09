@@ -31,7 +31,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
     }
 
     try {
-        const response = await fetch('/api/signup', {
+        const response = await fetch('/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +42,13 @@ document.getElementById('signup-form').addEventListener('submit', async function
         const result = await response.json();
 
         if (response.ok) {
+            // Display the modal and then redirect after a short delay
             document.getElementById('success-message').textContent = result.message; // Show success message
             document.getElementById('success-modal').style.display = 'block'; // Display the modal
+            
+            setTimeout(() => {
+                window.location.href = result.redirect; // Redirect to login page
+            }, 2000); // Adjust the timeout as needed
         } else {
             // Display field-specific error messages
             if (result.field === 'username') {

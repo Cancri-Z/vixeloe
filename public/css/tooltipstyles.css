@@ -1,0 +1,51 @@
+.tooltip-parent {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: fit-content;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    padding-block: 1px;
+    position: absolute;
+    bottom: -20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    align-self: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 20000;
+    font-size: 12px;
+    box-shadow: 1px 1px 2px #333;
+    color: #d1e3e3;
+    letter-spacing: 1px;
+    transform: translateX(-7px); /* Center horizontally */
+    font-style: normal;
+}
+
+.tooltip-text::before {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Position at the top of the tooltip */
+    left: 50%;
+    margin-left: -5px; /* Center the arrow */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent; /* Arrow color */
+}
+
+.tooltip-parent:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#ntf{
+    margin-right: -30px;
+    right: 5px;
+}

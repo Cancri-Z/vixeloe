@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalMessage = document.getElementById('modalMessage');
   const notificationModal = document.getElementById('notificationModal');
   const closeModalButton = document.getElementById('closeModalButton');
+  const successMessage = document.getElementById('success-message');
 
   // Show edit form when "Edit Profile" button is clicked
   editButton.addEventListener('click', () => {
@@ -41,37 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle form submission
   profileForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-  
+
     try {
       const formData = new FormData(profileForm);
       const response = await fetch('/api/user/profile', {
         method: 'POST',
         body: formData
       });
-  
-      console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
-  
+
       const contentType = response.headers.get("content-type");
-      console.log('Content-Type:', contentType);
-  
       const textContent = await response.text();
-      console.log('Response text:', textContent);
-  
+
       if (contentType && contentType.indexOf("application/json") !== -1) {
-        try {
-          const result = JSON.parse(textContent);
-          if (response.ok) {
-            showNotification('Profile updated successfully');
-            hideEditForm();
+        const result = JSON.parse(textContent);
+        if (response.ok) {
+          showNotification('Profile updated successfully');
+          // Refresh the page to reflect updated profile information
+          setTimeout(() => {
             window.location.reload();
-          } else {
-            showNotification(`Error updating profile: ${result.message || 'Unknown error'}`);
-            console.error('Profile update error:', result);
-          }
-        } catch (jsonError) {
-          console.error('Error parsing JSON:', jsonError);
-          showNotification('Error updating profile: Invalid JSON response');
+          }, 2000); // Adjust the delay as needed
+        } else {
+          showNotification(`Error updating profile: ${result.message || 'Unknown error'}`);
+          console.error('Profile update error:', result);
         }
       } else {
         console.error('Non-JSON response:', textContent);
@@ -98,6 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     modalMessage.textContent = message;
     notificationModal.classList.remove('hidden');
     notificationModal.style.display = 'block';
+
+    // Hide the notification modal after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+      hideNotification();
+    }, 5000);
   }
 
   // Function to hide notification modal

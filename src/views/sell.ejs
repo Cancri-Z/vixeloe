@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell on minoe</title>
+    <title>Sell on Vixeloe</title>
     <link rel="stylesheet" href="/css/sell.css">
-    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/scrollbar-design.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href=" /css/tooltipstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="/index"><img src="/img/vixeloe-logo2b-removebg-preview.png" alt=""></a>
+        <div id="logo" class="tooltip-parent">
+            <a href="/"><img src="/img/vixeloe-logo2b-removebg-preview.png" alt="logo"></a>
+            <div class="tooltip-text">Home</div>
         </div>
 
         <div id="search">
@@ -24,7 +26,7 @@
 
         <div id="svx">
             <div class="hmx">
-                <a href="/index">
+                <a href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="purple"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                 </a>
             </div>
@@ -59,10 +61,11 @@
         </div>
 
         <div id="nav">
-            <div class="hmxX">
-                <a href="/index">
+            <div class="tooltip-parent hmxX">
+                <a href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                 </a>
+                <div class="tooltip-text">Home</div>
             </div>
 
             <div id="brands">
@@ -81,18 +84,23 @@
                     <a href="">Sony</a>
                 </div>
             </div>
-            <div id="ads">
+            <div id="ads" class="tooltip-parent">
                 <a href="/listings">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#30b9c0"><path d="M360-240h440v-107H360v107ZM160-613h120v-107H160v107Zm0 187h120v-107H160v107Zm0 186h120v-107H160v107Zm200-186h440v-107H360v107Zm0-187h440v-107H360v107ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Z"/></svg>
                 </a>
+                <div class="tooltip-text">Listings</div>
             </div>
-            <div id="notification"><a href="./notification.html"><i class="fa-solid fa-bell"></i></a></div>
+            <div id="notification" class="tooltip-parent">
+                <a href="./notification.html"><i class="fa-solid fa-bell"></i></a>
+                <div class="tooltip-text" id="ntf">Notifications</div>
+            </div>
         </div>
     </header>
     <main>
         <div class="content">
             <p class="topic">Publish an Item <svg id="svgupload" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M440-160v-326L336-382l-56-58 200-200 200 200-56 58-104-104v326h-80ZM160-600v-120q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v120h-80v-120H240v120h-80Z"/></svg></p>
 
+        <form id="sellForm" onsubmit="submitProduct(event)" method="POST">
             <h2>Publish as:-</h2>
             <div class="publish-opt">
                 <div id="popt-1" class="optionF">Business</div>
@@ -100,7 +108,7 @@
             </div>
 
             <div class="option-field" id="option-field">
-                <input type="text" placeholder="Business name" required>
+                <input type="text" placeholder="Business name">
                 <input type="address" placeholder="Address">
             </div>
 
@@ -129,17 +137,26 @@
                 </div>
             </div>
 
+
             <div id="location">
                 <p>LOCATION</p>
                 <div class="select-wrapper">
-                  <select name="location" id="locaTion" aria-label="Select a location">
-                    <option value="" disabled selected hidden>Select Location</option>
-                    <option value="loc1">Location 1</option>
-                    <option value="loc2">Location 2</option>
-                    <!-- more options -->
-                  </select>
+                    <select name="state" id="state" aria-label="Select a state" class="scrollable">
+                        <option value="" disabled selected hidden>Select State</option>
+                        <!-- State options will be populated by JavaScript -->
+                    </select>
                 </div>
-              </div>
+                <div class="select-wrapper">
+                    <select name="lcda" id="lcda" aria-label="Select an LCDA">
+                        <option value="" disabled selected hidden>Select LCDA</option>
+                        <!-- LCDA options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <p id="locationDisplay"></p>
+            </div>
+            
+               
+            
 
             <div class="picDiv">
                 <p class="bold">PICTURES</p>
@@ -191,159 +208,13 @@
                 </div>
             </div>
 
-            <div class="rlsdt -mnk">
-                <label for="" class="bold">Release Date</label>
-                <input type="date" name="" id="">
-            </div>
 
-            <div class="dimensions">
-                <label for="" class="bold">Dimensions(mm)</label>
-                <div class="dmns">
-                    <label for="">Length</label>
-                    <input type="number" id="lgh1">
-                </div>
-                <div class="dmns">
-                    <label for="">Width</label>
-                    <input type="number" id="lgh2">
-                </div>
-                <div class="dmns">
-                    <label for="">Breadth</label>
-                    <input type="number" id="lgh3">
-                </div>
-            </div>
-
-            <div class="weight -mnk">
-                <label for="" class="number">Weight(kg)</label>
-                <input type="text">
-            </div>
-
-            <br>
-
-            <div class="b-mat">
-                <label for="" class="bold">Build Material</label>
-                <div class="-mnk">
-                    <div class="-ins">
-                        <label for="">Aluminum</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Stainless Steel</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Glass</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Plastic (Polycarbonate)</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Ceramic</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Titanium</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Carbon Fibre</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Magnesium Alloy</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Kevlar</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Liquid Metal (Amorphous Metal Alloy)</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Wood</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Leather</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Synthtic Composites</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                    <div class="-ins">
-                        <label for="">Graphene</label>
-                        <input type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="display-sizen -mnk">
-                <label for="" class="bold">Display Size (inches)</label>
-                <input type="number" name="" id="">
-            </div>
-
-            <br>
-
-            <div class="rspx">
-                <p class="bold">Resolution</p>
-                <div class="dmns">
-                    <label for="">Pixel Width</label>
-                    <input type="number">
-                </div>
-                <div class="dmns">
-                    <label for="">Pixel Height</label>
-                    <input type="number">
-                </div>
-            </div>
-
-            <br>
-
-            <div class="select-container">
-                <label for="displayType" class="bold">Display Type</label>
-                <select id="displayType" name="displayType">
-                    <option value="" disabled selected>Select display type</option>
-                    <optgroup label="LCD Displays">
-                        <option value="tft-lcd">TFT-LCD (Thin Film Transistor LCD)</option>
-                        <option value="ips-lcd">IPS-LCD (In-Plane Switching LCD)</option>
-                    </optgroup>
-                    <optgroup label="OLED Displays">
-                        <option value="oled">OLED (Organic Light-Emitting Diode)</option>
-                        <option value="amoled">AMOLED (Active Matrix OLED)</option>
-                        <option value="super-amoled">Super AMOLED</option>
-                        <option value="p-oled">P-OLED (Plastic OLED)</option>
-                    </optgroup>
-                    <optgroup label="Specialty Displays">
-                        <option value="retina">Retina Display</option>
-                        <option value="microled">MicroLED</option>
-                        <option value="qled">Quantum Dot Display (QLED)</option>
-                        <option value="e-ink">E-ink (Electronic Ink)</option>
-                    </optgroup>
-                </select>
-            </div>
-
-            <br>
-
-            <div class="rfsh">
-                <label for="refreshRate" class="bold">Refresh Rate</label>
-                <select id="refreshRate" name="refreshRate">
-                    <option value="" disabled selected>Select refresh rate</option>
-                    <option value="60hz">60 Hz</option>
-                    <option value="90hz">90 Hz</option>
-                    <option value="120hz">120 Hz</option>
-                    <option value="144hz">144 Hz</option>
-                    <option value="240hz">240 Hz</option>
-                </select>
-            </div>
 
             <div>
                 <fieldset>
-                    <p class="bold">Processors</p>  
+                    <p class="bold">PROCESSORS</p> 
+                    <p class="moi">Select options(s)</p>
+ 
                     <div>                  
                         <label>
                             Intel Core i3
@@ -392,58 +263,17 @@
 
             <br>
 
-            <div>
-                <fieldset>
-                    <p class="bold">Graphical Processing Unit (GPU):</p>                  
-                    <div>
-                        <label>
-                            NVIDIA GeForce RTX 3060
-                            <input type="checkbox" name="gpu" value="nvidia-rtx-3060">
-                        </label>                    
-                        <label>
-                            NVIDIA GeForce RTX 3070
-                            <input type="checkbox" name="gpu" value="nvidia-rtx-3070">
-                        </label>                  
-                        <label>
-                            NVIDIA GeForce RTX 3080
-                            <input type="checkbox" name="gpu" value="nvidia-rtx-3080">
-                        </label>                  
-                        <label>
-                            AMD Radeon RX 6700 XT
-                            <input type="checkbox" name="gpu" value="amd-rx-6700xt">
-                        </label>                   
-                        <label>
-                            AMD Radeon RX 6800
-                            <input type="checkbox" name="gpu" value="amd-rx-6800">
-                        </label>                   
-                        <label>
-                            AMD Radeon RX 6900 XT
-                            <input type="checkbox" name="gpu" value="amd-rx-6900xt">
-                        </label>                   
-                        <label>
-                            Apple GPU (integrated)
-                            <input type="checkbox" name="gpu" value="apple-gpu">
-                        </label>                   
-                        <label>
-                            Qualcomm Adreno series (integrated)
-                            <input type="checkbox" name="gpu" value="qualcomm-adreno">
-                        </label>
-                        
-                        <!-- Add more options as needed -->
-                    </div>    
-                </fieldset>
-            </div>
 
             <div class="ramDiv">
                 <p class="bold">RAM (Working Memory)</p>
                 <div class="ramList">
-                    <div class="pad"><input type="radio"><label for="">1GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">2GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">3GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">4GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">6GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">8GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">16GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="1gb" value="1gb"><label for="1gb">1GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="2gb" value="2gb"><label for="2gb">2GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="3gb" value="3gb"><label for="3gb">3GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="4gb" value="4gb"><label for="4gb">4GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="6gb" value="6gb"><label for="6gb">6GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="8gb" value="8gb"><label for="8gb">8GB</label></div>
+                    <div class="pad"><input type="radio" name="ram" id="16gb" value="16gb"><label for="16gb">16GB</label></div>
                 </div>
             </div>
 
@@ -452,13 +282,13 @@
             <div class="romDiv">
                 <p class="bold">ROM (Internal Storage)</p>
                 <div class="romList">
-                    <div class="pad"><input type="radio"><label for="">4GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">8GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">16GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">32GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">64GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">128GB</label></div>
-                    <div class="pad"><input type="radio"><label for="">256GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="4gbx" value="4gbx"><label for="4gbx">4GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="8gbx" value="8gbx"><label for="8gbx">8GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="16gbx" value="16gbx"><label for="16gbx">16GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="32gbx" value="32gbx"><label for="32gbx">32GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="64gbx" value="64gbx"><label for="64gbx">64GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="128gbx" value="128gbx"><label for="128gbx">128GB</label></div>
+                    <div class="pad"><input type="radio" name="rom" id="256gbx" value="256gbx"><label for="256gbx">256GB</label></div>
                 </div>
             </div>
 
@@ -466,7 +296,7 @@
 
             <div>
                 <fieldset>
-                    <p class="bold">Expandable Storage:</p>
+                    <p class="bold">EXPANDABLE STORAGE</p>
                     <div>
                         <label>
                             No expandable storage
@@ -498,13 +328,13 @@
            <div class="camQdiv">
                 <p class="bold">CAMERA QUALITY (Megapixels)</p>
                 <div class="camQlist">
-                    <div class="pad"><input type="radio"><label for="">10 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">20 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">36 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">48 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">60 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">100 MP</label></div>
-                    <div class="pad"><input type="radio"><label for="">225 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam1" value="10mp"><label for="cam1">10 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam2" value="20mp"><label for="cam2">20 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam3" value="36mp"><label for="cam3">36 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam4" value="48mp"><label for="cam4">48 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam5" value="60mp"><label for="cam5">60 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam6" value="100mp"><label for="cam6">100 MP</label></div>
+                    <div class="pad"><input type="radio" name="camQ" id="cam7" value="225mp"><label for="cam7">225 MP</label></div>
                 </div>
            </div>
 
@@ -513,93 +343,173 @@
            <div class="battPow">
                 <p class="bold">BATTERY LIFE (mAh)</p>
                 <div class="battList">
-                    <div class="pad"><input type="radio"><label for="">2,000mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">3,500mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">4,000mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">5,500mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">6,000mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">7,000mAh</label></div>
-                    <div class="pad"><input type="radio"><label for="">10,000mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow1" value="2000mah"><label for="battPow1">2,000mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow2" value="3500mah"><label for="battPow2">3,500mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow3" value="4000mah"><label for="battPow3">4,000mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow4" value="5500mah"><label for="battPow4">5,500mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow5" value="6000mah"><label for="battPow5">6,000mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow6" value="7000mah"><label for="battPow6">7,000mAh</label></div>
+                    <div class="pad"><input type="radio" name="battPow" id="battPow7" value="10000mah"><label for="battPow7">10,000mAh</label></div>
                 </div>
            </div>
 
-           <div class="colorDiv">
-                <p class="bold">COLOR</p>
-                <div class="colorList">
-                    <div class="pad"><input type="radio"><label for="">Red</label></div>
-                    <div class="pad"><input type="radio"><label for="">Green</label></div>
-                    <div class="pad"><input type="radio"><label for="">Blue</label></div>
-                    <div class="pad"><input type="radio"><label for="">Black</label></div>
-                    <div class="pad"><input type="radio"><label for="">Blue</label></div>
-                    <div class="pad"><input type="radio"><label for="">White</label></div>
-                    <div class="pad"><input type="radio"><label for="">Purple</label></div>
+
+           <div class="chargingType">
+                <p class="bold">CHARGING TYPE</p>
+                <div class="typeList">
+                    <div class="pad">
+                        <input type="radio" id="charging-type0" name="charging-type" value="wired"><label for="charging-type0">Wired Charging</label>
+                    </div>
+                    <div class="pad">
+                        <input type="radio" id="charging-type1" name="charging-type" value="wireless"><label for="charging-type1">Wireless Charging</label>
+                    </div>
+                    <div class="pad">
+                        <input type="radio" id="charging-type2" name="charging-type" value="both"><label for="charging-type2">Both</label>
+                    </div>
                 </div>
            </div>
+
+           <div class="networkDiv">
+            <p class="bold">NETWORK</p>
+            <div class="networkList">
+                <div class="pad"><input type="radio" name="network" id="2g" value="2g"><label for="2g">2G</label></div>
+                <div class="pad"><input type="radio" name="network" id="3g" value="3g"><label for="3g">3G</label></div>
+                <div class="pad"><input type="radio" name="network" id="4g" value="4g"><label for="4g">4G</label></div>
+                <div class="pad"><input type="radio" name="network" id="5g" value="5g"><label for="5g">5G</label></div>
+                <div class="pad"><input type="radio" name="network" id="lte" value="lte"><label for="lte">LTE</label></div>
+            </div>
+           </div>
+
+           <div class="simDiv">
+            <p class="bold">SIM TYPE</p>
+            <div class="simList">
+                <div class="pad">
+                    <input type="radio" name="sim" id="single" value="single"><label for="single">Single SIM</label>
+                </div>
+                <div class="pad">
+                    <input type="radio" name="sim" id="dual" value="dual"><label for="dual">Dual SIM</label>
+                </div>
+                <div class="pad">
+                    <input type="radio" name="sim" id="esim" value="esim"><label for="esim">eSIM</label>
+                </div>
+                <div class="pad">
+                    <input type="radio" name="sim" id="single-esim" value="single-esim"><label for="single-esim">Single SIM + eSIM</label>
+                </div>
+                <div class="pad">
+                    <input type="radio" name="sim" id="dual_esim" value="dual_esim"><label for="dual_esim">Dual SIM + eSIM</label>
+                </div>
+            </div>
+           </div>
+
+
+        
+        <div class="sensorsDiv">
+            <p class="bold">SENSORS</p>
+            <p class="moi">Select options(s)</p>
+            <div class="sensorsList">
+                <div class="pad">
+                    <input type="checkbox" id="none" name="sensors" value="none">
+                    <label for="none"> none</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="sensor-fingerprint" name="sensors" value="fingerprint">
+                    <label for="sensor-fingerprint">Fingerprint Sensor</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="sensor-face-unlock" name="sensors" value="face-unlock">
+                    <label for="sensor-face-unlock">Face Unlock</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="both" name="sensors" value="both">
+                    <label for="both">Both</label>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="specialFeaturesDiv">
+            <p class="bold">SPECIAL FEATURES</p>
+            <p class="moi">Select options(s)</p>
+
+            <div class="specialFeaturesList">             
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-wireless-charging" name="special-features" value="wireless-charging">
+                    <label for="special-feature-wireless-charging">Wireless Charging</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-reverse-wireless-charging" name="special-features" value="reverse-wireless-charging">
+                    <label for="special-feature-reverse-wireless-charging">Reverse Wireless Charging</label>
+                </div>
+                
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-5g" name="special-features" value="5g">
+                    <label for="special-feature-5g">5G Support</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-face-recognition" name="special-features" value="face-recognition">
+                    <label for="special-feature-face-recognition">Face Recognition</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-ar" name="special-features" value="ar">
+                    <label for="special-feature-ar">Augmented Reality (AR)</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-vr" name="special-features" value="vr">
+                    <label for="special-feature-vr">Virtual Reality (VR)</label>
+                </div>
+                <div class="pad">
+                    <input type="checkbox" id="special-feature-thermal-camera" name="special-features" value="thermal-camera">
+                    <label for="special-feature-thermal-camera">Thermal Camera</label>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="colorDiv">
+            <p class="bold">COLOR</p>
+            <div class="color-picker-wrapper">
+                <input type="color" name="color" id="colorBar" class="color-input">
+            </div>
+        </div>
+        
         </div>
 
         <div class="accessory" id="accessoriesDiv">
             <p class="accTitle">ACCESSORIES</p>
-
+        
             <div class="munical sec">
-                <p class="bold">TITLE</p>
-                <div class="duv">
-                    <input type="text" name="accName" id="ngv" placeholder="Enter item name">
-                </div>
+                <p class="bold">ACCESSORY TYPE</p>
+                <select id="accessoryType" class="select-styled">
+                    <option value="">Select an accessory type</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="screenProtector">Screen Protector</option>
+                    <option value="phoneCase">Phone Case</option>
+                    <option value="charger">Charger</option>
+                    <option value="powerBank">Power Bank</option>
+                    <option value="selfieStick">Selfie Stick</option>
+                    <option value="wirelessCharger">Wireless Charger</option>
+                    <option value="bluetoothSpeaker">Bluetooth Speaker</option>
+                    <option value="smartWatch">Smart Watch</option>
+                    <option value="memoryCard">Memory Card</option>
+                    <option value="others">Others</option>
+                </select>
             </div>
-
-            <div class="accName sec">
-                <p class="bold">TYPE</p>
-                <div class="accList duv">
-                    <div class="pad"><input type="radio"><label for="">Headphones</label></div>
-                    <div class="pad"><input type="radio"><label for="">Screen protectors</label></div>
-                    <div class="pad"><input type="radio"><label for="">Smartwatches</label></div>
-                    <div class="pad"><input type="radio"><label for="">Bluetooth speakers</label></div>
-                    <div class="pad"><input type="radio"><label for="">Powerbanks</label></div>
-                    <div class="pad"><input type="radio"><label for="">Selfie sticks</label></div>
-                    <div class="pad"><input type="radio"><label for="">Wireless chargers</label></div>
-                    <div class="pad"><input type="radio"><label for="">Camera mounts</label></div>
-                    <div class="pad"><input type="radio"><label for="">Protective phons cases</label></div>
-                    <div class="pad"><input type="radio"><label for="">Camera lens attachments</label></div>
-                    <div class="pad"><input type="radio"><label for="">Cases</label></div>
-                    <div class="pad"><input type="radio"><label for="">Water proof phone pouches</label></div>
-                    <div class="pad"><input type="radio"><label for="">Car phone holder</label></div>
-                    <div class="pad"><input type="radio"><label for="">Skins</label></div>
-                    <div class="pad"><input type="radio"><label for="">Game controller</label></div>
-                    <div class="pad"><input type="radio"><label for="">Memory card</label></div>
-                    <div class="pad"><input type="radio"><label for="">Mobile phone Cable</label></div>
-                    <div class="pad"><input type="radio"><label for="">Phone cleaning kits</label></div>
-                    <div class="pad"><input type="radio"><label for="">Phone tripods</label></div>
-                    <div class="pad"><input type="radio"><label for="">Stands</label></div>
-                    <div class="pad"><input type="radio"><label for="">Stylus pens</label></div>
-                    <div class="pad"><input type="radio"><label for="">Flip covers</label></div>
-                    <div class="pad"><input type="radio"><label for="">Chargers</label></div>
-                    <div class="pad"><input type="radio"><label for="">Mobile phone otg cable</label></div>
-                </div>
-            </div>
-
-            <div class="accColor sec">
-                <p class="bold">COLOR</p>
-                <div class="accColorList duv">
-                    <div class="pad"><input type="radio"><label for="">Red</label></div>
-                    <div class="pad"><input type="radio"><label for="">Black</label></div>
-                    <div class="pad"><input type="radio"><label for="">Blue</label></div>
-                    <div class="pad"><input type="radio"><label for="">Pink</label></div>
-                    <div class="pad"><input type="radio"><label for="">Silver</label></div>
-                    <div class="pad"><input type="radio"><label for="">Black</label></div>
-                    <div class="pad"><input type="radio"><label for="">green</label></div>
-                    <div class="pad"><input type="radio"><label for="">Purple</label></div>
-                </div>
-            </div>
+        
+            <div id="accessoryDetails"></div>
         </div>
 
-        <a href="/publish" style="text-decoration: none;">
+        <button type="submit" style="text-decoration: none;" id="s-btn">
             <div class="publish">
                 <div>PUBLISH</div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
                 </div>
             </div>
-        </a>
+        </button>
+
+    </form>
         
     </main>
 
@@ -639,5 +549,6 @@
 
     <script src="/js/toggle.js"></script>
     <script src="/js/sell.js"></script>
+    <script src="/js/tooltipstyles.js"></script>
 </body>
 </html>

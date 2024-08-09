@@ -71,14 +71,6 @@ body {
 }
 
 
-#nav div{
-    transition: all 200ms ease;
-}
-
-#nav div:hover{
-    transform: scale(1.1);
-}
-
 main{
     padding-top: 80px;
     display: flex;
@@ -284,7 +276,20 @@ main{
     width: fit-content;
 }
 
-.camQlist{
+.camQlist,
+.typeList,
+.networkList,
+.simList,
+.wifiList,
+.bluetoothList,
+.nfcList,
+.gpsList,
+.sensorsList,
+.speakersList,
+.headphoneJackList,
+.audioFeaturesList,
+.waterResistanceList,
+.specialFeaturesList{
     border: 1px solid orange;
     border-radius: 5px;
     padding: 10px;
@@ -293,12 +298,55 @@ main{
     flex-direction: column;
 }
 
-.battPow{
+.battPow,
+.chargingPower,
+.chargingType,
+.networkDiv,
+.simDiv,
+.wifiDiv,
+.bluetoothDiv,
+.nfcDiv,
+.gpsDiv,
+.sensorsDiv,
+.specialFeaturesDiv,
+.waterResistanceDiv,
+.audioFeaturesDiv,
+.headphoneJackDiv,
+.speakersDiv{
     border-top: 2px solid #dacdcd;
     margin-top: 30px;
     padding-top: 10px;
     width: fit-content;
 }
+
+.moi{
+    font-size: 12px;
+    color: #555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.powerList input{
+    width: 70px;
+    height: 50px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    outline: none;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #555;
+    text-align: center;
+}
+
+.powerList input:focus{
+    border: 2px solid rgba(255, 68, 0, 0.622);
+    background-color: #f2f2f28b;
+}
+
 
 .battList{
     border: 1px solid orange;
@@ -410,6 +458,13 @@ main{
     padding-top: 10px;
 }
 
+#locationDisplay{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #000 !important;
+    font-size: 14px !important;
+    text-transform: capitalize !important;
+}
+
 #location p {
     font-size: 1.2rem;
     font-weight: 700;
@@ -417,7 +472,6 @@ main{
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-bottom: 10px;
-    text-align: center;
   }
 
 .publish{
@@ -507,7 +561,7 @@ pointer-events: none;
 transition: transform 0.2s ease-in-out;
 }
   
-#locaTion {
+#state, #lcda {
 appearance: none; /* Remove default arrow in some browsers */
 -webkit-appearance: none;
 -moz-appearance: none;
@@ -522,18 +576,24 @@ cursor: pointer;
 transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-#locaTion:focus {
+#state:focus,
+#lcda:focus {
 outline: none; /* Remove focus outline, consider adding a custom one for accessibility */
 border-color: #3498db;
 box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
   }
 
 /* Hide the placeholder text */
-#locaTion option[value=""][disabled] {
+#state option[value=""][disabled] {
 display: none;
 }
 
-#locaTion option {
+#lcda option[value=""][disabled] {
+display: none;
+}
+
+#state option,
+#lcda option {
 font-weight: 500;
 color: #333;
 background-color: #ffffff;
@@ -541,11 +601,19 @@ padding: 10px;
 height: 120px !important;
 }
 
-#locaTion option[value=""][disabled] {
+#state option[value=""][disabled] {
 display: none;
 }
 
-#locaTion:hover + .select-wrapper::after {
+#lcda option[value=""][disabled] {
+display: none;
+}
+
+#state:hover + .select-wrapper::after {
+transform: translateY(-50%) scale(1.1);
+}
+
+#lcda:hover + .select-wrapper::after {
 transform: translateY(-50%) scale(1.1);
 }
   
@@ -556,7 +624,8 @@ transform: translateY(-50%) scale(1.1);
 #location p {
     font-size: 1rem;
     }
-#locaTion {
+#state,
+#lcda {
     font-size: 0.9rem;
     }
 }
@@ -639,7 +708,6 @@ display: block;
     padding-top: 10px;
 }
 
-
 .-mnk input[type="text"],
 .-mnk input[type="number"],
 .-mnk input[type="date"]{
@@ -649,6 +717,29 @@ display: block;
     border: 1px solid orange;
     border-radius: 5px;
     outline: none;
+}
+
+.display-sizen{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#display-s{
+    width: 60px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    outline: none;
+    text-align: center;
+    color: #555;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+#display-s:focus{
+    border: 2px solid #f65353;
+    background-color: #ddffff;
 }
 
 .dmns{
@@ -759,3 +850,187 @@ fieldset label{
 input[type="radio"]{
     margin-right: 3px;
 }
+
+#s-btn{
+    width: fit-content;
+    height: auto;
+    border: none;
+    background-color: inherit;
+}
+
+
+
+
+
+/* for accessories */
+.accDetails {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.accDetails h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #daad59;
+    padding-bottom: 5px;
+}
+
+.accField {
+    margin-bottom: 15px;
+}
+
+.accField label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 600;
+}
+
+.accField input[type="text"],
+.accField input[type="number"],
+.accField select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.accField input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.accField select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.accField input[type="text"]:focus,
+.accField input[type="number"]:focus,
+.accField select:focus {
+    outline: none;
+    border-color: #daad59;
+    box-shadow: 0 0 5px rgba(218, 173, 89, 0.5);
+}
+
+
+.select-styled {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-styled {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#accessoryDetails {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.colorDiv {
+    margin-top: 20px;
+    font-family: 'Arial, sans-serif';
+    border: 1px solid #ffa500;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.colorDiv .bold {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+.color-picker-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.color-input {
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.color-display {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+}
+
+/* Example for a specific element with class .scrollable */
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .scrollable::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  .scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  

@@ -107,7 +107,7 @@
             <div class="icons">
                 <a href="/profile" class="profile-icon"><i class="fas fa-user"></i></a>
                 <a href="/messages" class="message-icon"><i class="fas fa-envelope"></i></a>
-                <p id="logout"><a href="/logout">Logout</a></p>
+                <p id="logout"><a href="/login">Logout</a></p>
             </div>
         <% } else { %>
             <div id="auth-links login">
@@ -140,11 +140,16 @@
     </div>
     <div id="editForm" class="edit-form hidden">
       <h3>Edit Profile</h3>
-      <form id="profile-form" method="POST" enctype="multipart/form-data" action="/api/user/profile">
+
+      <div id="success-message" style="display: none; color: green;">
+        Profile updated successfully
+      </div>
+
+      <form id="profile-form" enctype="multipart/form-data">
         <input type="file" name="profilePicture" accept="image/*">
-        <input type="text" name="firstName" value="<%= user.firstName %>" placeholder="First Name">
-        <input type="text" name="middleName" value="<%= user.middleName %>" placeholder="Middle Name">
-        <input type="text" name="lastName" value="<%= user.lastName %>" placeholder="Last Name">
+        <input type="text" name="firstName" value="<%= user.firstName %>" placeholder="First Name" autocomplete="off">
+        <input type="text" name="middleName" value="<%= user.middleName %>" placeholder="Middle Name" autocomplete="off">
+        <input type="text" name="lastName" value="<%= user.lastName %>" placeholder="Last Name" autocomplete="off">
         <select name="gender">
           <option value="">Select Gender</option>
           <option value="male" <%= user.gender === 'male' ? 'selected' : '' %>>Male</option>
@@ -159,7 +164,7 @@
           <option value="divorced" <%= user.maritalStatus === 'divorced' ? 'selected' : '' %>>Divorced</option>
           <option value="widowed" <%= user.maritalStatus === 'widowed' ? 'selected' : '' %>>Widowed</option>
         </select>
-        <input type="text" name="occupation" value="<%= user.occupation %>" placeholder="Occupation">
+        <input type="text" name="occupation" value="<%= user.occupation %>" placeholder="Occupation" autocomplete="off">
         <select name="status">
           <option value="">Select Status</option>
           <option value="active" <%= user.status === 'active' ? 'selected' : '' %>>Active</option>
@@ -167,12 +172,12 @@
           <option value="suspended" <%= user.status === 'suspended' ? 'selected' : '' %>>Suspended</option>
         </select>
         <textarea name="bio" placeholder="Bio"><%= user.bio %></textarea>
-        <input type="email" name="email" value="<%= user.email %>" placeholder="Email">
-        <input type="text" name="homeAddress" value="<%= user.homeAddress %>" placeholder="Home Address">
-        <input type="text" name="officeAddress" value="<%= user.officeAddress %>" placeholder="Office Address">
-        <input type="text" name="homePhone" value="<%= user.homePhone %>" placeholder="Home Phone">
-        <input type="text" name="mobilePhone" value="<%= user.mobilePhone %>" placeholder="Mobile Phone">
-        <input type="text" name="officePhone" value="<%= user.officePhone %>" placeholder="Office Phone">
+        <input type="email" name="email" value="<%= user.email %>" placeholder="Email" autocomplete="off">
+        <input type="text" name="homeAddress" value="<%= user.homeAddress %>" placeholder="Home Address" autocomplete="off">
+        <input type="text" name="officeAddress" value="<%= user.officeAddress %>" placeholder="Office Address" autocomplete="off">
+        <input type="text" name="homePhone" value="<%= user.homePhone %>" placeholder="Home Phone" autocomplete="off">
+        <input type="text" name="mobilePhone" value="<%= user.mobilePhone %>" placeholder="Mobile Phone" autocomplete="off">
+        <input type="text" name="officePhone" value="<%= user.officePhone %>" placeholder="Office Phone" autocomplete="off">
         <button id="saveButton" type="submit">Save Changes</button>
         <button id="cancelButton" type="button">Cancel</button>
       </form>
